@@ -1,0 +1,16 @@
+{
+  "name": "tradition",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass scss/styles.scss:css/styles.css -w",
+    "prefix": "postcss css/styles.css --use autoprefixer -d css/prefixed/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^6.0.1",
+    "prefix": "^1.0.0"
+  }
+}
