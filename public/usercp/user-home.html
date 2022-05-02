@@ -10,12 +10,10 @@
         <!--Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet"> 
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
         
 
         <!--Icons-->
-        <link href="https://dawneggleton.github.io/JcinkSkinMocks/FA6/css/all.min.css" rel="stylesheet" />
+		<link href="https://dawneggleton.github.io/css/all.css" rel="stylesheet" />
 		<link href="https://files.jcink.net/uploads/totl/saturnicons.css" rel="stylesheet" />
 		<link href="https://files.jcink.net/uploads/totl/honeybee.css" rel="stylesheet" />
 		<link href="https://files.jcink.net/uploads/totl/cappucicons.css" rel="stylesheet" />
@@ -24,25 +22,25 @@
 		<script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
 		<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
 		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
-        <script src="../../js/clipboard.js"></script>
+        <script src="../js/clipboard.js"></script>
 
         <!--Settings-->
-        <script type='text/javascript' src='../js/settings.js'></script>
+        <script type='text/javascript' src='../../js/settings.js'></script>
         <link rel="stylesheet" href="../../css/settings.css" />
     </head>
-    <body id="UserCP" class="dark g-4">
+    <body id="idx" class="dark g-4">
+        <!--Background Elements-->
         
         <!--Header-->
-        <header></header>
+        <header>
+        </header>
 
         <!--Navigation-->
-        <nav></nav>
-
-        <!--Member Controls-->
-        <div class="controls memOnly desktopOnly"></div>
-
-        <!--Guest Controls-->
-        <div class="controls guestOnly desktopOnly"></div>
+        <nav>
+            <div id="navstrip" align="left">
+                <a href="?act=idx">My Community</a>
+            </div>
+        </nav>
 
         <!--Main Body-->
         <main>
@@ -206,13 +204,8 @@
             </div>
         </div> 
 
-        <!--Templates-->
-        <script type="text/javascript" src="../../templates/defaults/navigation.js"></script>
-        <script type="text/javascript" src="../../templates/defaults/header.js"></script>
-        <script type="text/javascript" src="../../templates/defaults/memberControls.js"></script>
-        <script type="text/javascript" src="../../templates/defaults/guestControls.js"></script>
-
         <!--Scripts-->
+        <script src="../../js/defaultsMenus.js"></script>
         <script src="../../js/functions.js"></script>
         <script src="../../js/scripts.js"></script>
     </body>
