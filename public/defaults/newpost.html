@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Site Name</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--Styles-->
+        <link rel="stylesheet" href="../../css/styles.css" />
+
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
+        
+
+        <!--Icons-->
+        <link href="https://dawneggleton.github.io/JcinkSkinMocks/FA6/css/all.min.css" rel="stylesheet" />
+		<link href="https://files.jcink.net/uploads/totl/saturnicons.css" rel="stylesheet" />
+		<link href="https://files.jcink.net/uploads/totl/honeybee.css" rel="stylesheet" />
+		<link href="https://files.jcink.net/uploads/totl/cappucicons.css" rel="stylesheet" />
+
+        <!--Script Libraries-->
+		<script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
+		<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
+		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+        <script src="../js/clipboard.js"></script>
+
+        <!--Settings-->
+        <script type='text/javascript' src='../../js/settings.js'></script>
+        <link rel="stylesheet" href="../../css/settings.css" />
+    </head>
+    <body id="Post" class="dark g-4">
+        
+        <!--Header-->
+        <header></header>
+
+        <!--Navigation-->
+        <nav></nav>
+
+        <!--Member Controls-->
+        <div class="controls memOnly desktopOnly"></div>
+
+        <!--Guest Controls-->
+        <div class="controls guestOnly desktopOnly"></div>
+
+        <!--Main Body-->
+        <main>
+            <a name="top"></a>
+            <script language="javascript1.2" type="text/javascript"></script>
+
+            <form action="https://playedgod.jcink.net/index.php?" method="post" name="REPLIER"><input type="hidden" name="st" value="0">
+            <input type="hidden" name="act" value="Post">
+            <input type="hidden" name="s" value="">
+            <input type="hidden" name="f" value="31">
+            <input type="hidden" name="auth_key" value="c1290008a82d75294bfed035b8d0206c">
+
+            <input type="hidden" name="CODE" value="01"><br>
+            <script language="Javascript" type="text/javascript">
+            </script>
+
+            <table class="tableborder" id="posting-form" width="100%" cellspacing="0" cellpadding="0">
+            <tbody><tr>
+            <td class="maintitle" colspan="2">&nbsp;&nbsp;Post a new topic in Lux</td>
+            </tr>
+                
+
+            <tr id="topic-settings-header">
+            <td colspan="2" class="pformstrip">Topic Settings</td>
+            </tr>
+            <tr id="topic-title">
+            <td class="pformleft">Topic Title</td>
+            <td class="pformright"><input type="text" size="40" maxlength="50" name="TopicTitle" value="" tabindex="1" class="forminput" placeholder="Topic Title"></td>
+            </tr>
+            <tr id="topic-desc">
+            <td class="pformleft">Topic Description</td>
+            <td class="pformright"><input type="text" size="40" maxlength="40" name="TopicDesc" value="" tabindex="2" class="forminput" placeholder="Topic Description"></td>
+            </tr>
+            <!--POLL BOX-->
+            <tr id="code-buttons-header">
+            <td class="pformstrip" colspan="2">Code Buttons</td>
+            </tr>
+            <tr id="code-buttons">
+            <td class="pformleft">
+                <input type="radio" class="radiobutton" name="bbmode" value="ezmode" onclick="setmode(this.value)">&nbsp;<b>Guided Mode</b><br>
+                <input type="radio" class="radiobutton" name="bbmode" value="normal" onclick="setmode(this.value)" checked="checked">&nbsp;<b>Normal Mode</b>
+                <script type="text/javascript" src="//files.jcink.net/html/jbfcode.js"></script>
+            </td>
+            <td class="pformright">
+                <span id="bbcode-buttons">
+                <input type="button" accesskey="b" value=" B " class="codebuttons" name="B" style="font-weight:bold" onmouseover="hstat('bold')">
+                <input type="button" accesskey="i" value=" I " class="codebuttons" name="I" style="font-style:italic" onmouseover="hstat('italic')">
+                <input type="button" accesskey="u" value=" U " class="codebuttons" name="U" style="text-decoration:underline" onmouseover="hstat('under')">
+
+                <select name="ffont" class="codebuttons" onchange="alterfont(this.options[this.selectedIndex].value, 'FONT')" onmouseover="hstat('font')">
+                <option value="0">FONT</option>
+                <option value="Arial" style="font-family:Arial">Arial</option>
+                <option value="Times" style="font-family:Times">Times</option>
+                <option value="Courier" style="font-family:Courier">Courier</option>
+                <option value="Impact" style="font-family:Impact">Impact</option>
+                <option value="Geneva" style="font-family:Geneva">Geneva</option>
+                <option value="Optima" style="font-family:Optima">Optima</option>
+                </select><select name="fsize" class="codebuttons" onchange="alterfont(this.options[this.selectedIndex].value, 'SIZE')" onmouseover="hstat('size')">
+                <option value="0">SIZE</option>
+                <option value="1">Small</option>
+                <option value="7">Large</option>
+                <option value="14">Largest</option>
+                </select><select name="fcolor" class="codebuttons" onchange="alterfont(this.options[this.selectedIndex].value, 'COLOR')" onmouseover="hstat('color')">
+                <option value="0">COLOR</option>
+                <option value="blue" style="color:blue">Blue</option>
+                <option value="red" style="color:red">Red</option>
+                <option value="purple" style="color:purple">Purple</option>
+                <option value="orange" style="color:orange">Orange</option>
+                <option value="yellow" style="color:yellow">Yellow</option>
+                <option value="gray" style="color:gray">Gray</option>
+                <option value="green" style="color:green">Green</option>
+                </select>
+                <select name="talign" class="codebuttons" onchange="alterfont(this.options[this.selectedIndex].value, 'ALIGN')" onmouseover="hstat('ALIGN')">
+                <option value="">ALIGN</option>	  
+                <option value="left">Left</option>
+                <option value="center">Center</option>
+                <option value="right">Right</option>
+                </select>
+                &nbsp; <a href="javascript:closeall();" onmouseover="hstat('close')">Close all Tags</a>
+                <br>
+                <input type="button" accesskey="h" value=" LINK " onclick="tag_url()" class="codebuttons" name="url" onmouseover="hstat('url')">
+                <input type="button" accesskey="g" value=" IMG " onclick="tag_image()" class="codebuttons" name="img" onmouseover="hstat('img')">
+                <input type="button" accesskey="e" value=" @TAG  " onclick="tag_username()" class="codebuttons" name="taguser" onmouseover="hstat('taguser')">
+                <input type="button" accesskey="q" value=" QUOTE " class="codebuttons" name="QUOTE" onmouseover="hstat('quote')">
+                <input type="button" accesskey="p" value=" CODE " class="codebuttons" name="CODE" onmouseover="hstat('code')">
+                <input type="button" accesskey="l" value=" LIST " onclick="tag_list()" class="codebuttons" name="LIST" onmouseover="hstat('list')">
+                <!--<input type='button' accesskey='l' value=' SQL '     onclick='simpletag("SQL")'     class='codebuttons' name='SQL'>
+                <input type='button' accesskey='t' value=' HTML '    onclick='simpletag("HTML")'    class='codebuttons' name='HTML'>-->
+                <input type="button" accesskey="d" value=" DOHTML " class="codebuttons" name="DOHTML" onmouseover="hstat('dohtml')">
+                <input type="button" class="codebuttons" value=" XL-HEADER " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[XL-HEADER][/XL-HEADER]'"> <input type="button" class="codebuttons" value=" LARGE-HEADER " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[LARGE-HEADER][/LARGE-HEADER]'"> <input type="button" class="codebuttons" value=" MED-HEADER " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[MED-HEADER][/MED-HEADER]'"> <input type="button" class="codebuttons" value=" SMALL-HEADER " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[SMALL-HEADER][/SMALL-HEADER]'"> <input type="button" class="codebuttons" value=" XS-HEADER " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[XS-HEADER][/XS-HEADER]'"> <input type="button" class="codebuttons" value=" XL-OFFSET " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[XL-OFFSET=x][/XL-OFFSET]'"> <input type="button" class="codebuttons" value=" LARGE-OFFSET " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[LARGE-OFFSET=x][/LARGE-OFFSET]'"> <input type="button" class="codebuttons" value=" MED-OFFSET " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[MED-OFFSET=x][/MED-OFFSET]'"> <input type="button" class="codebuttons" value=" BLOCKQUOTE " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[BLOCKQUOTE][/BLOCKQUOTE]'"> <input type="button" class="codebuttons" value=" ALTBLOCKQUOTE " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[ALTBLOCKQUOTE][/ALTBLOCKQUOTE]'"> <input type="button" class="codebuttons" value=" CENTRAL " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[CENTRAL][/CENTRAL]'"> <input type="button" class="codebuttons" value=" COAST " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[COAST][/COAST]'"> <input type="button" class="codebuttons" value=" OLDTOWN " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[OLDTOWN][/OLDTOWN]'"> <input type="button" class="codebuttons" value=" OUTSKIRTS " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[OUTSKIRTS][/OUTSKIRTS]'"> <input type="button" class="codebuttons" value=" RIVER " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[RIVER][/RIVER]'"> <input type="button" class="codebuttons" value=" WRITER " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[WRITER][/WRITER]'"> <input type="button" class="codebuttons" value=" POST " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[POST=x][/POST]'"> <input type="button" class="codebuttons" value=" POSTSCROLL " onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[POSTSCROLL=x][/POSTSCROLL]'"> 
+                </span>
+                <br>
+                Open Tags:&nbsp;<input type="text" name="tagcount" size="3" maxlength="3" style="font-size:10px;font-family:verdana,arial;border:0px;font-weight:bold;" readonly="readonly" class="row1" value="0">
+                &nbsp;<input type="text" name="helpbox" size="50" maxlength="120" style="width:auto;font-size:10px;font-family:verdana,arial;border:0px" readonly="readonly" class="row1" value="Hint: Use Guided Mode for helpful prompts">
+                </td>
+            </tr>
+            <tr id="enter-your-post-header">
+                <td colspan="2" class="pformstrip">Enter your Post</td>
+            </tr>
+            <tr id="enter-your-post">
+                <td class="pformleft" align="center">
+                <table class="tablefill" id="smilies-table" cellpadding="4" align="center">
+            <tbody><tr>
+            <td colspan="3" align="center"><b>Clickable Smilies</b></td>
+            </tr>
+            <tr align="center">
+            <td><a href="javascript:emoticon(':huh:')"><img src="//files.jcink.net/html/emoticons/huh.gif" alt="smilie" border="0"></a>&nbsp;</td>
+            <td><a href="javascript:emoticon(':o')"><img src="//files.jcink.net/html/emoticons/ohmy.gif" alt="smilie" border="0"></a>&nbsp;</td>
+            <td><a href="javascript:emoticon(';)')"><img src="//files.jcink.net/html/emoticons/wink.gif" alt="smilie" border="0"></a>&nbsp;</td>
+            </tr>
+
+            <tr align="center"><td><a href="javascript:emoticon(':P')"><img src="//files.jcink.net/html/emoticons/tongue.gif" alt="smilie" border="0"></a>&nbsp;</td>
+            <td><a href="javascript:emoticon(':D')"><img src="//files.jcink.net/html/emoticons/biggrin.gif" alt="smilie" border="0"></a>&nbsp;</td>
+            <td><a href="javascript:emoticon(':lol:')"><img src="//files.jcink.net/html/emoticons/laugh.gif" alt="smilie" border="0"></a>&nbsp;</td>
+            </tr>
+
+            <tr align="center"><td><a href="javascript:emoticon('B)')"><img src="//files.jcink.net/html/emoticons/cool.gif" alt="smilie" border="0"></a>&nbsp;</td>
+            <td><a href="javascript:emoticon(':rolleyes:')"><img src="//files.jcink.net/html/emoticons/rolleyes.gif" alt="smilie" border="0"></a>&nbsp;</td>
+            <td><a href="javascript:emoticon('<_<')"><img src="//files.jcink.net/html/emoticons/dry.gif" alt="smilie" border="0"></a>&nbsp;</td>
+            </tr>
+
+            <tr align="center"><td><a href="javascript:emoticon(':)')"><img src="//files.jcink.net/html/emoticons/smile.gif" alt="smilie" border="0"></a>&nbsp;</td>
+            <td><a href="javascript:emoticon(':angry:')"><img src="//files.jcink.net/html/emoticons/mad.gif" alt="smilie" border="0"></a>&nbsp;</td>
+            <td><a href="javascript:emoticon(':(')"><img src="//files.jcink.net/html/emoticons/sad.gif" alt="smilie" border="0"></a>&nbsp;</td>
+            </tr>
+
+            <tr align="center"><td><a href="javascript:emoticon(':unsure:')"><img src="//files.jcink.net/html/emoticons/unsure.gif" alt="smilie" border="0"></a>&nbsp;</td>
+            <td><a href="javascript:emoticon(':blink:')"><img src="//files.jcink.net/html/emoticons/blink.gif" alt="smilie" border="0"></a>&nbsp;</td>
+            <td><a href="javascript:emoticon(':ph34r:')"><img src="//files.jcink.net/html/emoticons/ph34r.gif" alt="smilie" border="0"></a>&nbsp;</td>
+            </tr>
+
+            <tr align="center"><td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            </tr>
+            <tr>
+            <td colspan="3" align="center"><b><a href="javascript:emo_pop()">Show All</a></b></td>
+            </tr>
+            </tbody></table>
+                <br><div class="desc"><strong><a href="javascript:CheckLength()">Check Post Length</a> · <a href="javascript:bbc_pop()">BB Code Help</a></strong></div>
+                </td>
+                <td class="pformright" valign="top">
+                
+                    <textarea cols="80" rows="20" name="Post" tabindex="3" class="textinput"></textarea>
+
+                    </td>
+            </tr>
+            <tr id="post-options">
+                <td class="pformleft"><b>Post Options</b></td>
+                <td class="pformright"><label class="emoteWrap"><input type="checkbox" name="enableemo" class="checkbox" value="yes" checked="checked"><span><i class="fa-solid fa-check"></i></span> Enable Emojis</label><label class="repWrap"><input type="checkbox" name="enabletrack" class="checkbox" value="1"><span><i class="fa-solid fa-check"></i></span> Enable Notifications</label></td>
+            </tr>
+            <!--QUOTE BOX-->
+            <tr id="post-icon-options">
+            <td class="pformleft"><b>Post Icons</b></td>
+            <td class="pformright">
+                <input type="radio" class="radiobutton" name="iconid" value="1">&nbsp;&nbsp;<img src="style_images/1/icon1.gif" alt="" align="middle">&nbsp;&nbsp;&nbsp;<input type="radio" class="radiobutton" name="iconid" value="2">&nbsp;&nbsp;<img src="style_images/1/icon2.gif" alt="" align="middle">&nbsp;&nbsp;&nbsp;<input type="radio" class="radiobutton" name="iconid" value="3">&nbsp;&nbsp;<img src="style_images/1/icon3.gif" alt="" align="middle">&nbsp;&nbsp;&nbsp;<input type="radio" class="radiobutton" name="iconid" value="4">&nbsp;&nbsp;<img src="style_images/1/icon4.gif" alt="" align="middle">&nbsp;&nbsp;&nbsp;<input type="radio" class="radiobutton" name="iconid" value="5">&nbsp;&nbsp;<img src="style_images/1/icon5.gif" alt="" align="middle">&nbsp;&nbsp;&nbsp;<input type="radio" class="radiobutton" name="iconid" value="6">&nbsp;&nbsp;<img src="style_images/1/icon6.gif" alt="" align="middle">&nbsp;&nbsp;&nbsp;<input type="radio" class="radiobutton" name="iconid" value="7">&nbsp;&nbsp;<img src="style_images/1/icon7.gif" alt="" align="middle"><br>
+                <input type="radio" class="radiobutton" name="iconid" value="8">&nbsp;&nbsp;<img src="style_images/1/icon8.gif" alt="" align="middle">&nbsp;&nbsp;&nbsp;<input type="radio" class="radiobutton" name="iconid" value="9">&nbsp;&nbsp;<img src="style_images/1/icon9.gif" alt="" align="middle">&nbsp;&nbsp;&nbsp;<input type="radio" class="radiobutton" name="iconid" value="10">&nbsp;&nbsp;<img src="style_images/1/icon10.gif" alt="" align="middle">&nbsp;&nbsp;&nbsp;<input type="radio" class="radiobutton" name="iconid" value="11">&nbsp;&nbsp;<img src="style_images/1/icon11.gif" alt="" align="middle">&nbsp;&nbsp;&nbsp;<input type="radio" class="radiobutton" name="iconid" value="12">&nbsp;&nbsp;<img src="style_images/1/icon12.gif" alt="" align="middle">&nbsp;&nbsp;&nbsp;<input type="radio" class="radiobutton" name="iconid" value="13">&nbsp;&nbsp;<img src="style_images/1/icon13.gif" alt="" align="middle">&nbsp;&nbsp;&nbsp;<input type="radio" class="radiobutton" name="iconid" value="14">&nbsp;&nbsp;<img src="style_images/1/icon14.gif" alt="" align="middle"><br>
+                <input type="radio" class="radiobutton" name="iconid" value="0" checked="checked">&nbsp;&nbsp;[ Use None ]
+            </td>
+            </tr>
+
+            <tr id="post-as-header">
+                <td colspan="2" class="pformstrip">Post as user</td>
+            </tr>
+            <tr id="post-as">
+                <td class="pformleft">Select sub-account author...</td>
+                <td class="pformright" width="100%">
+                
+                <script>
+                function edit_sub_user() {
+                    if(document.getElementById('post_as_menu').value == -1){
+                        document.getElementById('post_as_selector').innerHTML="<input type='text' class='forminput' name='post_as_username' size='40' placeholder='Enter username of any member here...'>";
+                    }
+                }
+                </script>
+                
+                <span id="post_as_selector">
+                    <select id="post_as_menu" name="post_as" class="forminput" onchange="edit_sub_user()">
+                    <option value="0">-- Current account --</option>
+                    <option value="4">&nbsp;&nbsp;» Brennan Cormac </option><option value="43">&nbsp;&nbsp;» Cynbel Edevane </option><option value="2">&nbsp;&nbsp;» Hayden Donovan </option><option value="50">&nbsp;&nbsp;» Jesse Dunn </option><option value="1">&nbsp;&nbsp;» Lux </option><option value="45">&nbsp;&nbsp;» Madison Mckinley </option><option value="3">&nbsp;&nbsp;» Malcolm Murdock </option><option value="15">&nbsp;&nbsp;» Satiah El Masry </option><option value="36">&nbsp;&nbsp;» Sterling Di Mitri </option>		
+                    </select>
+                </span>
+                </td>
+            </tr>
+            
+
+            <tr>
+            <td class="pformstrip" style="text-align:center" colspan="2" align="center">
+                <input type="submit" name="submit" value="Post New Topic" tabindex="4" class="forminput" accesskey="s" onclick="editor.switchModes()">&nbsp;
+                <input type="submit" name="preview" value="Preview Post" tabindex="5" class="forminput">
+            </td>
+            </tr>
+            </tbody></table>
+            </form>
+            <br>
+            <br clear="all"> 
+        </main>
+
+        <!-- Copyright Information -->
+        <div class="tableborder" align="center">
+            <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                <div class="copyright" align="center">
+                    Powered by 
+                    <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                    (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                    <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                    ) © 2020 &nbsp;
+                    <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                    <br>
+                    Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                    <a href="index.php?act=Mobile">Mobile Version</a> · 
+                    <a href="index.php?act=privacy">Privacy Policy</a>
+                </div>
+            </div>
+        </div> 
+
+        <!--Templates-->
+        <script type="text/javascript" src="../../templates/defaults/navigation.js"></script>
+        <script type="text/javascript" src="../../templates/defaults/header.js"></script>
+        <script type="text/javascript" src="../../templates/defaults/memberControls.js"></script>
+        <script type="text/javascript" src="../../templates/defaults/guestControls.js"></script>
+
+        <!--Scripts-->
+        <script src="../../js/functions.js"></script>
+        <script src="../../js/scripts.js"></script>
+    </body>
+</html>
