@@ -28,7 +28,7 @@
         <script type='text/javascript' src='../../js/settings.js'></script>
         <link rel="stylesheet" href="../../css/settings.css" />
     </head>
-    <body id="UserCP" class="dark g-4 code-08">
+    <body id="UserCP" class="dark g-4 code-26">
         <!--Background Elements-->
         
         <!--Header-->
@@ -102,36 +102,80 @@ The one where 23% margin + 100% table = 123% in IE6 o_O
 <!-- Start main CP area -->
  <td id="ucpcontent" valign="top">
   <div class="maintitle">Welcome to your control panel </div>            
-			     <script language="Javascript" type="text/javascript">
-   var msg = "";
-   if ( msg != "")
-   {
-	   alert(msg);
-   }
-</script>
+			     <!-- inbox folder -->
+  <script language="JavaScript" type="text/javascript">
+  function CheckAll(cb) {
+	  var fmobj = document.mutliact;
+	  for (var i=0;i<fmobj.elements.length;i++) {
+		  var e = fmobj.elements[i];
+		  if ((e.name != 'allbox') && (e.type=='checkbox') && (!e.disabled)) {
+			  e.checked = fmobj.allbox.checked;
+		  }
+	  }
+  }
+  function CheckCheckAll(cb) {	
+	  var fmobj = document.mutliact;
+	  var TotalBoxes = 0;
+	  var TotalOn = 0;
+	  for (var i=0;i<fmobj.elements.length;i++) {
+		  var e = fmobj.elements[i];
+		  if ((e.name != 'allbox') && (e.type=='checkbox')) {
+			  TotalBoxes++;
+			  if (e.checked) {
+				  TotalOn++;
+			  }
+		  }
+	  }
+	  if (TotalBoxes==TotalOn) {fmobj.allbox.checked=true;}
+	  else {fmobj.allbox.checked=false;}
+  }
+  //-->
+  </script>
 
-<form action="https://playedgod.jcink.net/index.php?" method="post" name="form1">
+<div class="pformstrip">Current Subscriptions <span style="float: right;">Sort by: [ <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=26&amp;sort_by=last_post">Last Post</a> | <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=26&amp;f=all">Forum &amp; Last Post</a> ]</span></div>
+
+
+<form action="https://playedgod.jcink.net/index.php?" name="mutliact" method="post">
 <input type="hidden" name="act" value="UserCP">
-<input type="hidden" name="CODE" value="09">
-<div class="pformstrip">Change your registered email address</div>
-<p><b>Your current email address:</b> luxaciousdesigns@hotmail.com</p>
-<table style="padding:6px" width="100%">
+<input type="hidden" name="CODE" value="27">
+
+<br>
+<div class="tableborder" align="center">
+<table width="100%" cellspacing="1" cellpadding="4">
 <tbody><tr>
-  <td width="40%"><strong>Enter your new email address</strong></td>
-  <td align="left"><input type="text" name="in_email_1" value="" class="forminput"></td>
-</tr>
-<tr>
-  <td><strong>Confirm the new email address</strong></td>
-  <td align="left"><input type="text" name="in_email_2" value="" class="forminput"></td>
-</tr>
-<tr>
-  <td><strong>Your Current Password</strong></td>
-  <td align="left"><input type="password" name="password" value="" class="forminput"></td>
+  <td class="titlemedium" width="5%" align="left">&nbsp;</td>
+  <th class="titlemedium" width="55%" align="left">Topic</th>
+  <th class="titlemedium" width="5%" align="center">Replies</th>
+  <th class="titlemedium" width="5%" align="center">Views</th>
+  <th class="titlemedium" width="25%" align="left">Last Post</th>
+  <td class="titlemedium" width="5%" align="center"><input name="allbox" type="checkbox" value="Check All" onclick="CheckAll();"></td>
+</tr>                 <tr>
+                   <td class="row3" colspan="6" align="center">There are no subscriptions to show, try selecting a less restrictive date range</td>
+                 </tr><tr>
+ <td class="titlemedium" colspan="6" valign="middle" align="center"><input type="submit" class="forminput" value="Unsubscribe">&nbsp;&nbsp;with selected</td>
 </tr>
 </tbody></table>
-<!--ANTIBOT-->
-<div class="pformstrip" align="center"><input type="submit" name="change_email" value="Change my Email Address" class="forminput"></div>
-</form> </td>
+</div>
+</form>
+
+<div style="padding:5px" align="right"><i>Subscribed areas are delivered as email or alert notifications per your preferences.</i></div>
+<div style="padding:5px" align="right">
+ 	<form action="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=26" method="post">
+	<input type="hidden" name="sort_by" value="">
+ 	Show topics from: <select class="forminput" name="datecut"><option value="1">Last day</option>
+<option value="1">Last 1 days</option>
+<option value="7">Last 7 days</option>
+<option value="14">Last 14 days</option>
+<option value="21">Last 21 days</option>
+<option value="30" selected="">Last 30 days</option>
+<option value="60">Last 60 days</option>
+<option value="90">Last 90 days</option>
+<option value="365">Last 365 days</option>
+<option value="1000">the beginning</option>
+</select>
+ 	<input type="submit" class="forminput" value="Go">
+ 	</form>
+</div> </td>
 </tr>
 </tbody></table>
 <!-- end main CP area -->

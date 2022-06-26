@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Site Name</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--Styles-->
+        <link rel="stylesheet" href="../../css/styles.css" />
+
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+
+        <!--Icons-->
+		<link href="https://dawneggleton.github.io/css/all.css" rel="stylesheet" />
+		<link href="https://files.jcink.net/uploads/totl/saturnicons.css" rel="stylesheet" />
+		<link href="https://files.jcink.net/uploads/totl/honeybee.css" rel="stylesheet" />
+		<link href="https://files.jcink.net/uploads/totl/cappucicons.css" rel="stylesheet" />
+
+        <!--Script Libraries-->
+		<script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
+		<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
+		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+        <script src="../../js/clipboard.js"></script>
+
+        <!--Settings-->
+        <script type='text/javascript' src='../../js/settings.js'></script>
+        <link rel="stylesheet" href="../../css/settings.css" />
+    </head>
+    <body id="Reg" class="dark g-4">
+        <!--Background Elements-->
+        
+        <!--Header-->
+        <header>
+        </header>
+
+        <!--Navigation-->
+        <nav>
+            <div id="navstrip" align="left">
+                <a href="../index.html">My Community</a>
+            </div>
+        </nav>
+
+        <!--Main Body-->
+        <main>
+			
+            <!-- start new code  -->
+            <!--IBF.NEWPMBOX-->
+            
+            <script src="https://www.google.com/recaptcha/api.js"></script>
+            
+            <script type="text/javascript">
+            
+            
+            // ---------------------
+            // Check the username
+            // ---------------------
+            
+            var http = createRequestObject();
+            
+            function check_name(){
+            
+            var RegName=document.getElementById('registered-name-checkeh');
+            mk_req(RegName.value); // Make the ajax request
+            
+            
+                                                         } // end
+            
+            // ---------------------
+            // Check the password
+            // ---------------------
+            
+            function check_pass(){
+            // Definitions of crap. These are the THREE ids to target.
+            
+            // Field 1 and 2
+            var p1=document.getElementById('password-one');
+            var p2=document.getElementById('password-two');
+            var WarningMessage2=document.getElementById('password-warn');
+            var okImage2=document.getElementById('password-image');
+            
+            if(p1.value=="") var pwfailed=1;
+            if(p2.value=="") var pwfailed=1;
+            
+            if(p1.value == p2.value && pwfailed!="1") { 
+            WarningMessage2.parentNode.style.display="none";
+            p1.style.borderColor="#00CC00";
+            p2.style.borderColor="#00CC00";
+            okImage2.style.display="";
+            okImage2.innerHTML="&#10003;"
+            } else {
+            WarningMessage2.innerHTML="You must enter matching passwords.";
+            WarningMessage2.parentNode.style.display="";
+            p1.style.borderColor="#cc0000";
+            p2.style.borderColor="#cc0000";
+            okImage2.style.display="";
+            okImage2.innerHTML="&#10008;";
+            
+            }
+                        }
+            
+            // ---------------------
+            // Check the email
+            // ---------------------
+            
+            function check_email(){
+            // Definitions of crap. These are the THREE ids to target.
+            
+            // Field 1 and 2
+            var e1=document.getElementById('email-one');
+            var e2=document.getElementById('email-two');
+            var WarningMessage3=document.getElementById('email-warn');
+            var okImage3=document.getElementById('email-image');
+            
+            if(e1.value=="") var efailed=1;
+            if(e2.value=="") var efailed=1;
+            
+            if(e1.value == e2.value && efailed!="1") { 
+            WarningMessage3.parentNode.style.display="none";
+            e1.style.borderColor="#00CC00";
+            e2.style.borderColor="#00CC00";
+            okImage3.style.display="";
+            okImage3.innerHTML="&#10003;"
+            } else {
+            WarningMessage3.innerHTML="You must enter matching, valid emails.";
+            WarningMessage3.parentNode.style.display="";
+            e1.style.borderColor="#cc0000";
+            e2.style.borderColor="#cc0000";
+            okImage3.style.display="";
+            okImage3.innerHTML="&#10008;";
+            
+            }
+            
+            
+            
+            }
+            
+            
+            // -------------------------------------------------------------------------
+            // Ajax
+            // -------------------------------------------------------------------------
+            
+            function createRequestObject() {
+                var tmpXmlHttpObject;
+                if (window.XMLHttpRequest) { 
+                tmpXmlHttpObject = new XMLHttpRequest();
+                } else if (window.ActiveXObject) { 
+                tmpXmlHttpObject = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                return tmpXmlHttpObject;
+            }
+            
+            // Check and return value function
+            function mk_req(v) {
+            var randomnumber=Math.floor(Math.random()*20000)
+            
+                    http.open('get', 'index.php?act=Reg&CODE=01&ajaxreq=1&username='+v+'&r='+randomnumber);
+                http.onreadystatechange = processResponse;
+                http.send(null);
+            }
+            
+            function processResponse(value) {
+            if(http.readyState == 4){
+            var RegName=document.getElementById('registered-name-checkeh');
+            var WarningMessage=document.getElementById('registered-name-warn');
+            var okImage=document.getElementById('registered-name-image');
+            
+            var response = http.responseText;
+            document.getElementById('registered-name-taken').innerHTML = response;
+            
+            // Is the name taken?
+            
+            if(document.getElementById('registered-name-taken').innerHTML == "registered"){
+            WarningMessage.innerHTML="The username you have chosen is already registered.";
+            WarningMessage.parentNode.style.display="";
+            RegName.style.borderColor="#cc0000";
+            okImage.style.display="";
+            okImage.innerHTML="&#10008;";
+            } else {
+            var regname_ok_second = 1;
+            }
+            
+            // Is the name too long? or too short?
+            if(RegName.value.length<3||RegName.value.length>32){
+            WarningMessage.innerHTML="You must enter a name longer than 3 characters and shorter than 26";
+            WarningMessage.parentNode.style.display="";
+            RegName.style.borderColor="#cc0000";
+            okImage.style.display="";
+            okImage.innerHTML="&#10008;";
+            } else {
+            var regname_ok_first = 1;
+            }
+            
+            
+            // Everything was OK :)
+            if(regname_ok_first == "1" && regname_ok_second == "1") { 
+            WarningMessage.parentNode.style.display="none";
+            RegName.style.borderColor="#00CC00";
+            okImage.style.display="";
+            okImage.innerHTML="&#10003;"
+            }
+            
+                }
+            }
+            
+            
+            
+            var ipb_lang_js_blanks   = "You must complete all of the form";
+            var ipb_lang_js_no_check = "You cannot register unless you agree to the terms and check the 'I agree' checkbox";
+            var subsdesc_0 = "No package selected to purchase";
+            var subdesc   = new Array();
+            var register_method = "email";
+            var allowed_chars = "";
+            var allowed_error = "The name can only contain these characters: ";
+            
+            </script>
+            
+            
+            <form action="https://playedgod.jcink.net/index.php" method="post" name="REG">
+            <input type="hidden" name="act" value="Reg">
+            <input type="hidden" name="CODE" value="02">
+            <input type="hidden" name="coppa_user" value="0">
+            <input type="hidden" name="read_tos" value="1">
+            
+            <b>Registration Instructions</b><br><br>Please ensure that you complete all the fields fully, taking particular care over the password fields.
+            <br>
+            <br>
+            <div class="tableborder">
+              <div class="maintitle"> &nbsp;Registration Form</div>
+              <div class="pformstrip">Please complete the form fully</div>
+              <div class="tablepad">
+                      <table cellspacing="0">
+                        <tbody><tr>
+                            <td width="50%" valign="top">
+                                <fieldset>
+            
+                                <legend><b>Username:</b></legend>
+            
+            <div class="warning" style="background-color: #ffcccc; margin: 2px; display:none; border: 1px solid #cc0000; padding: 4px;"><div id="registered-name-warn"></div></div>
+            
+                                      <table cellspacing="0">
+                                        <tbody><tr>
+                                            <td>Enter your desired username &nbsp;<span>(<a href="#" style="cursor: help;" title="This is the name shown with all your topics and posts. Between 3 and 26 chars.">?</a>)</span></td>
+            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            <!-- Properly set up --> 
+                                                <input type="text" class="forminput" size="50" minlength="3" maxlength="26" value="" id="registered-name-checkeh" name="UserName" onblur="check_name()"> <span id="registered-name-image" style="display:none"></span>
+                                                                                </td>
+                                        </tr>
+                                     </tbody></table>
+            
+                                    
+                                </fieldset><br>
+                                
+                                <fieldset>
+            
+            <div class="warning" style="background-color: #ffcccc; margin: 2px; display:none; border: 1px solid #cc0000; padding: 4px;">
+            <div id="password-warn">       </div>
+            </div>
+            
+                                <legend><b>Password:</b></legend>
+                                    <table cellspacing="0">
+                                        <tbody><tr>
+                                            <td width="1%" nowrap="nowrap">Enter your password &nbsp;<span>(<a href="#" style="cursor: help;" title="Passwords must be between 3 and 32 characters long">?</a>)</span></td>
+            
+                                            <td width="100%">Confirm Password &nbsp;<span>(<a href="#" style="cursor: help;" title="Please re-enter your password: It must match exactly">?</a>)</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="forminput" type="password" size="25" minlength="3" maxlength="32" value="" id="password-one" name="PassWord" onblur="check_pass()"></td>
+                                            <td><input class="forminput" type="password" size="25" minlength="3" maxlength="32" value="" id="password-two" name="PassWord_Check" onblur="check_pass()"></td>
+                                            <td width="12">	<span id="password-image" style="display:none"></span>			    </td>
+                                        </tr>
+                                    </tbody></table>
+                                </fieldset><br>
+                            
+                                <fieldset>
+            
+            <div class="warning" style="background-color: #ffcccc; margin: 2px; display:none; border: 1px solid #cc0000; padding: 4px;">
+            <div id="email-warn">       </div>
+            </div>
+            
+                                <legend><b>Email Address:</b></legend>
+                                    <table cellspacing="0">
+            
+                                        <tbody><tr>
+                                            <td width="1%" nowrap="nowrap">Enter your Email Address &nbsp;<span>(<a href="#" style="cursor: help;" title="Enter a valid email address.">?</a>)</span></td>
+                                            <td width="100%">Confirm Email Address &nbsp;<span>(<a href="#" style="cursor: help;" title="Please re-enter your email address: It must match exactly">?</a>)</span></td>
+                                        </tr>
+                                        <tr>
+            
+                                            <td><input class="forminput" type="email" size="25" maxlength="150" value="" onblur="check_email()" id="email-one" name="EmailAddress"></td>
+                                            <td><input class="forminput" type="email" size="25" maxlength="150" value="" onblur="check_email()" id="email-two" name="EmailAddress_two"></td>
+                                            <td width="12"><span id="email-image" style="display:none"></span></td>
+                                        </tr>
+                                    </tbody></table>
+                                </fieldset><br>
+                                <!--{REQUIRED.FIELDS}-->
+                                    
+                                <!--{STD_CAPTCHA}-->
+                
+                            </td>
+                            <td width="50%" valign="top">
+                                <div>
+                                    <b>Optional Information</b><br><br>
+                                    <table cellspacing="0">
+                                        <tbody><tr>
+            
+                                            <td>
+                                                <fieldset>
+                                                <legend>Receiving Email</legend>
+                                                    <div class="desc">Now and again, the administrators and other members might wish to contact you via email through this board.</div><br>
+                                                    <input type="checkbox" name="allow_admin_mail" value="1" class="checkbox"> Receive email from administrators<br>
+                                                    <input type="checkbox" name="allow_member_mail" value="1" class="checkbox"> Receive email from other members
+                                                </fieldset><br>
+            
+                                        
+                                                <fieldset>
+                                                <legend>Time Zone Settings</legend>
+                                                    <div class="desc">You can adjust the default time zone setting below</div><br>
+                                                    
+            <select name="time_offset" class="forminput">
+            <option value="none" selected="selected">Please select the timezone for your account...</option>
+            
+            
+            <option value="-12">(GMT - 12:00 hours) Enewetak, Kwajalein</option><option value="-11">(GMT - 11:00 hours) Midway Island, Samoa</option><option value="-10">(GMT - 10:00 hours) Hawaii</option><option value="-9.5">(GMT - 9:30 hours) French Polynesia</option><option value="-9">(GMT - 9:00 hours) Alaska</option><option value="-8">(GMT - 8:00 hours) Pacific Time (US &amp; Canada)</option><option value="-7">(GMT - 7:00 hours) Mountain Time (US &amp; Canada)</option><option value="-6">(GMT - 6:00 hours) Central Time (US &amp; Canada), Mexico City</option><option value="-5">(GMT - 5:00 hours) Eastern Time (US &amp; Canada), Bogota, Lima</option><option value="-4">(GMT - 4:00 hours) Atlantic Time (Canada), Caracas, La Paz</option><option value="-3.5">(GMT - 3:30 hours) Newfoundland</option><option value="-3">(GMT - 3:00 hours) Brazil, Buenos Aires, Falkland Is.</option><option value="-2">(GMT - 2:00 hours) Mid-Atlantic, Ascention Is., St Helena</option><option value="-1">(GMT - 1:00 hours) Azores, Cape Verde Islands</option><option value="0">(GMT) Casablanca, Dublin, London, Lisbon, Monrovia</option><option value="1">(GMT + 1:00 hours) Brussels, Copenhagen, Madrid, Paris</option><option value="2">(GMT + 2:00 hours) Kaliningrad, South Africa</option><option value="3">(GMT + 3:00 hours) Baghdad, Riyadh, Moscow, Nairobi</option><option value="3.5">(GMT + 3:30 hours) Tehran</option><option value="4">(GMT + 4:00 hours) Abu Dhabi, Baku, Muscat, Tbilisi</option><option value="4.5">(GMT + 4:30 hours) Kabul</option><option value="5">(GMT + 5:00 hours) Ekaterinburg, Karachi, Tashkent</option><option value="5.5">(GMT + 5:30 hours) Bombay, Calcutta, Madras, New Delhi</option><option value="5.75">(GMT + 5:45 hours) Kathmandu</option><option value="6">(GMT + 6:00 hours) Almaty, Colombo, Dhaka</option><option value="6.5">(GMT + 6:30 hours) Yangon, Naypyidaw, Bantam</option><option value="7">(GMT + 7:00 hours) Bangkok, Hanoi, Jakarta</option><option value="8">(GMT + 8:00 hours) Hong Kong, Perth, Singapore, Taipei</option><option value="8.75">(GMT + 8:45 hours) Caiguna, Eucla</option><option value="9">(GMT + 9:00 hours) Osaka, Sapporo, Seoul, Tokyo, Yakutsk</option><option value="9.5">(GMT + 9:30 hours) Adelaide, Darwin</option><option value="10">(GMT + 10:00 hours) Melbourne, Papua New Guinea, Sydney</option><option value="10.5">(GMT + 10:30 hours) Lord Howe Island</option><option value="11">(GMT + 11:00 hours) Magadan, New Caledonia, Solomon Is.</option><option value="11.5">(GMT + 11:30 hours) Burnt Pine, Kingston</option><option value="12">(GMT + 12:00 hours) Auckland, Fiji, Marshall Island</option><option value="12.75">(GMT + 12:45 hours) Chatham Islands</option><option value="13">(GMT + 13:00 hours) Kamchatka, Anadyr</option><option value="14">(GMT + 14:00 hours) Kiritimati</option></select><br><br>
+            
+                                                    <!--<input type="checkbox" name="dst" value="1" class="checkbox"  /> Observing Daylight Saving Time?<br />-->
+                                                </fieldset><br>
+                                                
+            <fieldset>
+            
+                                <legend><b>Member Alias</b></legend>
+            
+                                      <table cellspacing="0">
+                                        <tbody><tr>
+                                            <td>What would you like us to call you?</td>
+            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+            <input type="text" size="30" name="field_1" value="" class="forminput">
+            
+                                                                                </td>
+                                        </tr>
+                                     </tbody></table>
+            
+                                    
+                                </fieldset><br>
+            <fieldset>
+            
+                                <legend><b>Please Avoid</b></legend>
+            
+                                      <table cellspacing="0">
+                                        <tbody><tr>
+                                            <td>Please list everything you would prefer to avoid; we won't question it and it doesn't have to be only triggers. Will be prefaced by "[name] will not write" and ended in a period.</td>
+            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+            <textarea cols="60" rows="5" name="field_9" class="forminput"></textarea>
+            
+                                                                                </td>
+                                        </tr>
+                                     </tbody></table>
+            
+                                    
+                                </fieldset><br>
+            <fieldset>
+            
+                                <legend><b>Member Pronouns</b></legend>
+            
+                                      <table cellspacing="0">
+                                        <tbody><tr>
+                                            <td>What pronouns do you use?</td>
+            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+            <input type="text" size="30" name="field_2" value="" class="forminput">
+            
+                                                                                </td>
+                                        </tr>
+                                     </tbody></table>
+            
+                                    
+                                </fieldset><br>
+            <fieldset>
+            
+                                <legend><b>Member Age</b></legend>
+            
+                                      <table cellspacing="0">
+                                        <tbody><tr>
+                                            <td>In numbers, please!</td>
+            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+            <input type="text" size="30" name="field_3" value="" class="forminput">
+            
+                                                                                </td>
+                                        </tr>
+                                     </tbody></table>
+            
+                                    
+                                </fieldset><br>
+            <fieldset>
+            
+                                <legend><b>Timezone</b></legend>
+            
+                                      <table cellspacing="0">
+                                        <tbody><tr>
+                                            <td>You don't have to update this with Daylight Savings - it's just for an approximation!</td>
+            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+            <select name="field_4" class="forminput"><option value="unset">unset</option>
+            <option value="a">GMT-12</option>
+            <option value="b">GMT-11</option>
+            <option value="c">GMT-10</option>
+            <option value="d">GMT-9</option>
+            <option value="e">GMT-8</option>
+            <option value="f">GMT-7</option>
+            <option value="g">GMT-6</option>
+            <option value="h">GMT-5</option>
+            <option value="i">GMT-4</option>
+            <option value="j">GMT-3:30</option>
+            <option value="k">GMT-3</option>
+            <option value="l">GMT-2</option>
+            <option value="m">GMT-1</option>
+            <option value="n">GMT</option>
+            <option value="o">GMT+1</option>
+            <option value="p">GMT+2</option>
+            <option value="q">GMT+3</option>
+            <option value="r">GMT+3:30</option>
+            <option value="s">GMT+4</option>
+            <option value="t">GMT+5</option>
+            <option value="u">GMT+5:30</option>
+            <option value="v">GMT+6</option>
+            <option value="w">GMT+7</option>
+            <option value="x">GMT+8</option>
+            <option value="y">GMT+9</option>
+            <option value="z">GMT+9:30</option>
+            <option value="aa">GMT+10</option>
+            <option value="ab">GMT+11</option>
+            <option value="ac">GMT+12</option>
+            </select>
+            
+                                                                                </td>
+                                        </tr>
+                                     </tbody></table>
+            
+                                    
+                                </fieldset><br>
+            <fieldset>
+            
+                                <legend><b>Mature Themes and Language Preference</b></legend>
+            
+                                      <table cellspacing="0">
+                                        <tbody><tr>
+                                            <td>Our rating preferences use the RPG Rating system. Learn more here: https://rpgrating.com/</td>
+            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+            <select name="field_5" class="forminput"><option value="unset">unset</option>
+            <option value="a">none</option>
+            <option value="b">mild</option>
+            <option value="c">with limits</option>
+            <option value="d">all</option>
+            </select>
+            
+                                                                                </td>
+                                        </tr>
+                                     </tbody></table>
+            
+                                    
+                                </fieldset><br>
+            <fieldset>
+            
+                                <legend><b>Sexual Content Preference</b></legend>
+            
+                                      <table cellspacing="0">
+                                        <tbody><tr>
+                                            <td>Our rating preferences use the RPG Rating system. Learn more here: https://rpgrating.com/</td>
+            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+            <select name="field_6" class="forminput"><option value="unset">unset</option>
+            <option value="a">none</option>
+            <option value="b">mild</option>
+            <option value="c">with limits</option>
+            <option value="d">all</option>
+            </select>
+            
+                                                                                </td>
+                                        </tr>
+                                     </tbody></table>
+            
+                                    
+                                </fieldset><br>
+            <fieldset>
+            
+                                <legend><b>Violent Content Preference</b></legend>
+            
+                                      <table cellspacing="0">
+                                        <tbody><tr>
+                                            <td>Our rating preferences use the RPG Rating system. Learn more here: https://rpgrating.com/</td>
+            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+            <select name="field_7" class="forminput"><option value="unset">unset</option>
+            <option value="a">none</option>
+            <option value="b">mild</option>
+            <option value="c">with limits</option>
+            <option value="d">all</option>
+            </select>
+            
+                                                                                </td>
+                                        </tr>
+                                     </tbody></table>
+            
+                                    
+                                </fieldset><br>
+            <fieldset>
+            
+                                <legend><b>Writing Tense</b></legend>
+            
+                                      <table cellspacing="0">
+                                        <tbody><tr>
+                                            <td>Which writing tense do you use for posts?</td>
+            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+            <select name="field_8" class="forminput"><option value="unset">unset</option>
+            <option value="a">Past</option>
+            <option value="b">Present</option>
+            <option value="c">Future</option>
+            </select>
+            
+                                                                                </td>
+                                        </tr>
+                                     </tbody></table>
+            
+                                    
+                                </fieldset><br>
+            <fieldset>
+            
+                                <legend><b>Writing Point of View</b></legend>
+            
+                                      <table cellspacing="0">
+                                        <tbody><tr>
+                                            <td>Which point of view do you write in for posts?</td>
+            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+            <select name="field_40" class="forminput"><option value="unset">unset</option>
+            <option value="a">Third</option>
+            <option value="b">Second</option>
+            <option value="c">First</option>
+            </select>
+            
+                                                                                </td>
+                                        </tr>
+                                     </tbody></table>
+            
+                                    
+                                </fieldset><br>
+            <fieldset>
+            
+                                <legend><b>Posting Frequency</b></legend>
+            
+                                      <table cellspacing="0">
+                                        <tbody><tr>
+                                            <td>Assuming an average month, how frequently can you be expected to post?</td>
+            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+            <select name="field_41" class="forminput"><option value="unset">unset</option>
+            <option value="a">Daily</option>
+            <option value="b">More than once a week</option>
+            <option value="c">Weekly</option>
+            <option value="d">Every 1 to 2 weeks</option>
+            <option value="e">Every 2 to 3 weeks</option>
+            <option value="f">Monthly</option>
+            </select>
+            
+                                                                                </td>
+                                        </tr>
+                                     </tbody></table>
+            
+                                    
+                                </fieldset><br>
+            <fieldset>
+            
+                                <legend><b>Account Type</b></legend>
+            
+                                      <table cellspacing="0">
+                                        <tbody><tr>
+                                            <td>Is this a member account or a character account?</td>
+            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+            <select name="field_39" class="forminput"><option value="member">Member</option>
+            <option value="character">Character</option>
+            </select>
+            
+                                                                                </td>
+                                        </tr>
+                                     </tbody></table>
+            
+                                    
+                                </fieldset><br>
+            
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            </td>
+                        </tr>
+            
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td valign="middle" align="center">
+                                <fieldset>
+                <legend><b>Human Verification Check</b></legend>
+                    
+                            If you do not see the checkbox, please contact a board administrator.
+                            <table cellspacing="0">
+                        <tbody><tr>
+                            <td width="1%">
+                                <div class="g-recaptcha" data-sitekey="6Lc9dwcUAAAAAJ1HXFExCJTcuTR23dtTi06yAa81"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lc9dwcUAAAAAJ1HXFExCJTcuTR23dtTi06yAa81&amp;co=aHR0cHM6Ly9wbGF5ZWRnb2QuamNpbmsubmV0OjQ0Mw..&amp;hl=en&amp;v=2W_gRz39xX8G13fM-OdyQPlc&amp;size=normal&amp;cb=coleq8eo4unp" role="presentation" name="a-iacnc918u8fj" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" width="304" height="78" frameborder="0"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </fieldset><div class="desc"><input type="checkbox" name="agree" value="1"> I agree to the terms of this registration, <b>I am at least 18 years of age,</b> and wish to proceed. </div><br>
+                                    <input class="forminput" type="submit" value="Submit my registration > >">
+                            </td>
+                        </tr>
+                    </tbody></table>
+                    </div>
+            
+            </div>
+            </form>
+            <!-- end new code -->
+            
+            
+            
+            <script language="javascript" type="text/javascript">
+            
+            function Validate() {
+            
+                // Check for Empty fields
+            
+                if (document.REG.UserName.value == "" || document.REG.PassWord.value == "" || document.REG.PassWord_Check.value == "" || document.REG.EmailAddress.value == "") {
+            
+                    alert ("You must complete all of the form");
+            
+                    return false;
+            
+                }
+            
+            
+            
+                // Have we checked the checkbox?
+            
+            
+                if (document.REG.agree.checked == true) {
+            
+                    return true;
+            
+                } else {
+            
+                    alert ("You cannot register unless you agree to the terms and check the 'I agree' checkbox");
+            
+                    return false;
+            
+                }
+            
+            }
+            
+            //-->
+            
+            </script>
+            <!-- Hidden Divs to store messages -->
+            
+            <div id="registered-name-taken" style="display: none;">not registered</div> <!-- Usernamecheck -->
+            
+            
+             
+        </main>
+
+        <!-- Copyright Information -->
+        <div class="tableborder" align="center">
+            <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                <div class="copyright" align="center">
+                    Powered by 
+                    <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                    (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                    <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                    ) © 2020 &nbsp;
+                    <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                    <br>
+                    Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                    <a href="index.php?act=Mobile">Mobile Version</a> · 
+                    <a href="index.php?act=privacy">Privacy Policy</a>
+                </div>
+            </div>
+        </div> 
+
+        <!--Scripts-->
+        <script src="../../js/defaultsMenus.js"></script>
+        <script src="../../js/functions.js"></script>
+        <script src="../../js/scripts.js"></script>
+    </body>
+</html>
