@@ -1,11 +1,11 @@
 {
-  "name": "tradition",
+  "name": "template",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass scss/styles.scss:css/styles.css -w",
-    "prefix": "postcss css/styles.css --use autoprefixer -d css/prefixed/"
+    "sass": "sass scss/styles.scss:css/styles.css scss/settings.scss:css/settings.css -w",
+    "prefix": "postcss css/*.css --u --no-map autoprefixer -d css/prefixed/"
   },
   "author": "",
   "license": "ISC",
