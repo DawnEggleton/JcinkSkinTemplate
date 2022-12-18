@@ -1,4 +1,46 @@
 /*******************************
     Variables
 ********************************/
+:root {
+    --font-accent: 'Averia Serif Libre', serif;
+    --font-body: 'Montserrat', sans-serif;
 
+    --bg-texture: url(../images/pexels-aleksandr-slobodianyk-989946.jpg);
+    --bg-opacity: 0.1;
+
+    --xsBody: 8px;
+    --sBody: 10px;
+    --mBody: 12px;
+    --lBody: 14px;
+    --xlBody: 16px;
+
+    --black: rgb(34, 34, 34);
+    --grey-dark: rgb(70, 70, 70);
+    --grey-mid: rgb(100, 100, 100);
+    --grey-light: rgb(145, 145, 145);
+    --white: rgb(196, 196, 196);
+
+    --accent-dark: 74, 96, 94;
+    --accent-mid: 122, 157, 154;
+    --accent-muted: 138, 157, 156;
+    --accent-main: 139, 174, 171;
+
+    //set colors
+    --bg-main: var(--black);
+    --bg-accent: rgba(var(--accent-dark), 1);
+
+    --border-main: var(--grey-light);
+
+    --text-main: var(--grey-light);
+    --text-accent: rgba(var(--accent-main), 1);
+}
+.light {
+    //set colors
+    --bg-main: var(--white);
+    --bg-accent: rgba(var(--accent-muted), 1);
+
+    --border-main: var(--grey-light);
+
+    --text-main: var(--grey-dark);
+    --text-accent: rgba(var(--accent-mid), 1);
+}

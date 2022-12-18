@@ -1,0 +1,178 @@
+/*******************************
+    Variables
+********************************/
+:root {
+  --font-accent: "Averia Serif Libre", serif;
+  --font-body: "Montserrat", sans-serif;
+  --bg-texture: url(../images/pexels-aleksandr-slobodianyk-989946.jpg);
+  --bg-opacity: 0.1;
+  --xsBody: 8px;
+  --sBody: 10px;
+  --mBody: 12px;
+  --lBody: 14px;
+  --xlBody: 16px;
+  --black: rgb(34, 34, 34);
+  --grey-dark: rgb(70, 70, 70);
+  --grey-mid: rgb(100, 100, 100);
+  --grey-light: rgb(145, 145, 145);
+  --white: rgb(196, 196, 196);
+  --accent-dark: 74, 96, 94;
+  --accent-mid: 122, 157, 154;
+  --accent-muted: 138, 157, 156;
+  --accent-main: 139, 174, 171;
+  --bg-main: var(--black);
+  --bg-accent: rgba(var(--accent-dark), 1);
+  --border-main: var(--grey-light);
+  --text-main: var(--grey-light);
+  --text-accent: rgba(var(--accent-main), 1);
+}
+
+.light {
+  --bg-main: var(--white);
+  --bg-accent: rgba(var(--accent-muted), 1);
+  --border-main: var(--grey-light);
+  --text-main: var(--grey-dark);
+  --text-accent: rgba(var(--accent-mid), 1);
+}
+
+/*******************************
+    Global
+********************************/
+* {
+  position: relative;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-body);
+  font-size: var(--mBody);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  color: var(--text-main);
+  background: var(--bg-main);
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: var(--bg-texture);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  filter: grayscale(100%);
+  opacity: var(--bg-opacity);
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-accent);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 300px auto;
+  min-height: 1000vh;
+}
+
+/*******************************
+    Navigation
+********************************/
+nav {
+  border-bottom: 1px solid var(--border-main);
+  padding: 2ch;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  background: var(--bg-main);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+aside {
+  padding: 2ch;
+  border-right: 1px solid var(--border-main);
+  background: var(--bg-accent);
+}
+aside::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--bg-texture);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  mix-blend-mode: soft-light;
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
+aside .sticky {
+  position: sticky;
+  top: calc(1px + (var(--xsBody) * 2) + 4ch);
+}
+
+/*******************************
+    Header
+********************************/
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: 1px solid var(--border-main);
+}
+#idx header {
+  min-height: 50vh;
+}
+header h1 {
+  font-family: var(--font-accent);
+  font-size: 10ch;
+  margin: 0;
+}
+header p {
+  max-width: 500px;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  font-size: var(--xsBody);
+  text-align: center;
+  line-height: 200%;
+}
+
+/*******************************
+    Categories
+********************************/
+/*******************************
+    Board Stats
+********************************/
+/*******************************
+    Topic List
+********************************/
+/*******************************
+    Post Row
+********************************/
+/*******************************
+    Profile
+********************************/
+/*******************************
+    Member List
+********************************/
+/*******************************
+    Webpages
+********************************/
+/*******************************
+    Templates
+********************************/
+/*******************************
+    Jcink Defaults
+********************************/
+
+/*# sourceMappingURL=styles.css.map */

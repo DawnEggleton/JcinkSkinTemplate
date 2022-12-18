@@ -1,0 +1,7 @@
+/*
+Put your header HTML between the backticks below and it will auto-populate on all pages of this local copy.
+*/
+
+const headerHTML = ``;
+
+//document.querySelector('header').innerHTML = headerHTML;

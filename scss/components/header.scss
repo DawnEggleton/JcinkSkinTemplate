@@ -1,4 +1,29 @@
 /*******************************
     Header
 ********************************/
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-bottom: 1px solid var(--border-main);
 
+    #idx & {
+        min-height: 50vh;
+    }
+
+    h1 {
+        font-family: var(--font-accent);
+        font-size: 10ch;
+        margin: 0;
+    }
+
+    p {
+        max-width: 500px;
+        text-transform: uppercase;
+        letter-spacing: 0.5em;
+        font-size: var(--xsBody);
+        text-align: center;
+        line-height: 200%;
+    }
+}

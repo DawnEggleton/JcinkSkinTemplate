@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "sass": "sass scss/styles.scss:css/styles.css scss/settings.scss:css/settings.css -w",
-    "prefix": "postcss css/*.css --u --no-map autoprefixer -d css/prefixed/"
+    "prefix": "npx postcss css/*.css --use autoprefixer -d css/prefixed"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^10.4.13",
     "node-sass": "^6.0.1",
+    "postcss": "^8.4.20",
+    "postcss-cli": "^10.1.0",
     "prefix": "^1.0.0"
   }
 }

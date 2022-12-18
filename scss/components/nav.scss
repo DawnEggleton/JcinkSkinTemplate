@@ -1,4 +1,40 @@
 /*******************************
     Navigation
 ********************************/
+nav {
+    border-bottom: 1px solid var(--border-main);
+    padding: 2ch;
+    font-size: var(--xsBody);
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    background: var(--bg-main);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+aside {
+    padding: 2ch;
+    border-right: 1px solid var(--border-main);
+    background: var(--bg-accent);
 
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: var(--bg-texture);
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        mix-blend-mode: soft-light;
+        opacity: 0.5;
+        filter: grayscale(100%);
+    }
+
+    .sticky {
+        position: sticky;
+        top: calc(1px + (var(--xsBody) * 2) + 4ch);
+    }
+}

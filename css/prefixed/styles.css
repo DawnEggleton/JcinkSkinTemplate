@@ -1,0 +1,87 @@
+/*******************************
+    Variables
+********************************/
+:root {
+  --font-accent: "Averia Serif Libre", serif;
+  --font-body: "Assistant", sans-serif;
+  --background: url(../../images/pexels-aleksandr-slobodianyk-989946.jpg);
+  --xsBody: 9px;
+  --sBody: 11px;
+  --mBody: 13px;
+  --lBody: 15px;
+  --xlBody: 17px;
+  --black: rgb(24, 30, 29);
+  --white: rgb(138, 147, 145);
+  --accent-mid: rgba(157, 90, 42, 0.5);
+  --bg-main: var(--black);
+  --text-main: var(--white);
+  --text-accent: var(--accent-mid);
+}
+
+/*******************************
+    Global
+********************************/
+* {
+  position: relative;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-body);
+  font-size: var(--mBody);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-accent);
+}
+
+/*******************************
+    Navigation
+********************************/
+/*******************************
+    Header
+********************************/
+::-moz-placeholder {
+  color: gray;
+}
+::placeholder {
+  color: gray;
+}
+
+/*******************************
+    Categories
+********************************/
+/*******************************
+    Board Stats
+********************************/
+/*******************************
+    Topic List
+********************************/
+/*******************************
+    Post Row
+********************************/
+/*******************************
+    Profile
+********************************/
+/*******************************
+    Member List
+********************************/
+/*******************************
+    Webpages
+********************************/
+/*******************************
+    Templates
+********************************/
+/*******************************
+    Jcink Defaults
+********************************/
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3Njc3MvZ2xvYmFsL3ZhcmlhYmxlcy5zY3NzIiwiLi4vc3R5bGVzLmNzcyIsIi4uLy4uL3Njc3MvZ2xvYmFsL2dsb2JhbC5zY3NzIiwiLi4vLi4vc2Nzcy9jb21wb25lbnRzL25hdi5zY3NzIiwiLi4vLi4vc2Nzcy9jb21wb25lbnRzL2hlYWRlci5zY3NzIiwiLi4vLi4vc2Nzcy9jb21wb25lbnRzL2NhdGVnb3J5LnNjc3MiLCIuLi8uLi9zY3NzL2NvbXBvbmVudHMvc3RhdHMuc2NzcyIsIi4uLy4uL3Njc3MvY29tcG9uZW50cy90b3BpYy5zY3NzIiwiLi4vLi4vc2Nzcy9jb21wb25lbnRzL3Bvc3Quc2NzcyIsIi4uLy4uL3Njc3MvY29tcG9uZW50cy9wcm9maWxlLnNjc3MiLCIuLi8uLi9zY3NzL2NvbXBvbmVudHMvbWVtYmVycy5zY3NzIiwiLi4vLi4vc2Nzcy9jb21wb25lbnRzL3dlYnBhZ2VzLnNjc3MiLCIuLi8uLi9zY3NzL2NvbXBvbmVudHMvdGVtcGxhdGVzLnNjc3MiLCIuLi8uLi9zY3NzL2NvbXBvbmVudHMvZGVmYXVsdHMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Z0NBQUE7QUFHQTtFQUNJLDBDQUFBO0VBQ0Esb0NBQUE7RUFFQSx1RUFBQTtFQUVBLGFBQUE7RUFDQSxhQUFBO0VBQ0EsYUFBQTtFQUNBLGFBQUE7RUFDQSxjQUFBO0VBRUEsd0JBQUE7RUFDQSwyQkFBQTtFQUVBLG9DQUFBO0VBRUEsdUJBQUE7RUFDQSx5QkFBQTtFQUNBLGdDQUFBO0FDSko7O0FDbEJBOztnQ0FBQTtBQUlBO0VBQ0ksa0JBQUE7RUFDQSxzQkFBQTtBRG9CSjs7QUNsQkE7RUFDSSw2QkFBQTtFQUNBLHVCQUFBO0FEcUJKOztBQ25CQTtFQUNJLFVBQUE7RUFDQSxTQUFBO0VBQ0EsMEJBQUE7RUFDQSx1QkFBQTtBRHNCSjs7QUNwQkE7RUFDSSxxQkFBQTtFQUNBLHlCQUFBO0FEdUJKOztBRTNDQTs7Z0NBQUE7QUNBQTs7Z0NBQUE7QUFHQTtFQUNJLFdBQUE7QUhpREo7QUdsREE7RUFDSSxXQUFBO0FIaURKOztBSXJEQTs7Z0NBQUE7QUNBQTs7Z0NBQUE7QUNBQTs7Z0NBQUE7QUNBQTs7Z0NBQUE7QUNBQTs7Z0NBQUE7QUNBQTs7Z0NBQUE7QUNBQTs7Z0NBQUE7QUNBQTs7Z0NBQUE7QUNBQTs7Z0NBQUEiLCJmaWxlIjoic3R5bGVzLmNzcyJ9 */
