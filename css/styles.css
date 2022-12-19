@@ -2,9 +2,9 @@
     Variables
 ********************************/
 :root {
-  --font-accent: "Averia Serif Libre", serif;
+  --font-accent: "Bodoni Moda", serif;
   --font-body: "Montserrat", sans-serif;
-  --bg-texture: url(../images/pexels-aleksandr-slobodianyk-989946.jpg);
+  --bg-texture: url(https://files.jcink.net/uploads2/victis/pexels_aleksandr_slobodianyk_989946.jpg);
   --bg-opacity: 0.1;
   --xsBody: 8px;
   --sBody: 10px;
@@ -23,16 +23,17 @@
   --bg-main: var(--black);
   --bg-accent: rgba(var(--accent-dark), 1);
   --border-main: var(--grey-light);
+  --border-secondary: var(--grey-mid);
   --text-main: var(--grey-light);
   --text-accent: rgba(var(--accent-main), 1);
 }
 
-.light {
-  --bg-main: var(--white);
-  --bg-accent: rgba(var(--accent-muted), 1);
-  --border-main: var(--grey-light);
-  --text-main: var(--grey-dark);
-  --text-accent: rgba(var(--accent-mid), 1);
+.lrgFont {
+  --xsBody: 10px;
+  --sBody: 12px;
+  --mBody: 14px;
+  --lBody: 16px;
+  --xlBody: 18px;
 }
 
 /*******************************
@@ -74,50 +75,127 @@ a {
   color: var(--text-accent);
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 300px auto;
-  min-height: 1000vh;
+#navstrip {
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 1px;
+  padding: 5px 8px;
+}
+#idx #navstrip {
+  display: none;
+}
+#navstrip i {
+  margin: 0 5px;
+}
+#navstrip + br, #navstrip + br + br {
+  display: none;
+}
+
+/* Important */
+.newstext,
+.hide {
+  display: none !important;
+}
+
+body:not(.g-4) .staffOnly {
+  display: none;
+}
+
+body:not(.g-2) .guestOnly {
+  display: none;
+}
+
+body.g-2 .memOnly {
+  display: none;
+}
+
+.fa-solid,
+.fa-regular,
+.fa-light,
+.fa-thin,
+.fa-brand {
+  font-style: normal !important;
+}
+
+.fa-solid,
+.fa-regular,
+.fa-light,
+.fa-thin {
+  font-family: "Font Awesome 6 Pro" !important;
+}
+
+.fa-brand {
+  font-family: "Font Awesome 6 Brands" !important;
+}
+
+.fa-solid {
+  font-weight: 700 !important;
+}
+
+.fa-regular {
+  font-weight: 500 !important;
+}
+
+.fa-light {
+  font-weight: 300 !important;
+}
+
+.fa-thin {
+  font-weight: 100 !important;
 }
 
 /*******************************
     Navigation
 ********************************/
-nav {
+.nav {
   border-bottom: 1px solid var(--border-main);
-  padding: 2ch;
+  padding: 10px 8px;
   font-size: var(--xsBody);
   text-transform: uppercase;
-  letter-spacing: 0.5em;
+  letter-spacing: 1px;
   background: var(--bg-main);
   position: sticky;
   top: 0;
   z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
 }
-
-aside {
-  padding: 2ch;
-  border-right: 1px solid var(--border-main);
-  background: var(--bg-accent);
+.nav--left, .nav--right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
-aside::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: var(--bg-texture);
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  mix-blend-mode: soft-light;
-  opacity: 0.5;
-  filter: grayscale(100%);
+.nav--right #navstrip {
+  display: none;
 }
-aside .sticky {
-  position: sticky;
-  top: calc(1px + (var(--xsBody) * 2) + 4ch);
+.nav--right i {
+  font-size: var(--sBody);
+}
+.nav--right button {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--text-accent);
+  cursor: pointer;
+}
+.nav--right button[disabled] {
+  display: none;
+}
+body:not(.light) .nav--right button .fa-brightness-low {
+  display: none;
+}
+body.light .nav--right button .fa-brightness {
+  display: none;
+}
+body:not(.lrgFont) .nav--right button .fa-arrow-down-left-and-arrow-up-right-to-center {
+  display: none;
+}
+body.lrgFont .nav--right button .fa-arrow-up-right-and-arrow-down-left-from-center {
+  display: none;
 }
 
 /*******************************
@@ -133,9 +211,20 @@ header {
 #idx header {
   min-height: 50vh;
 }
+#idx header h1 {
+  font-size: 80px;
+}
+body:not(#idx) > header {
+  padding: 35px 35px 55px 25px;
+}
+body:not(#idx) > header h1 {
+  font-size: 40px;
+}
+body:not(#idx):not(#ST) > header p {
+  display: none;
+}
 header h1 {
   font-family: var(--font-accent);
-  font-size: 10ch;
   margin: 0;
 }
 header p {
@@ -146,10 +235,142 @@ header p {
   text-align: center;
   line-height: 200%;
 }
+header p b {
+  color: var(--text-accent);
+}
 
 /*******************************
     Categories
 ********************************/
+.category {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px;
+  gap: 15px;
+}
+.category--title {
+  font-family: var(--font-accent);
+  color: var(--text-accent);
+  font-size: 30px;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: lowercase;
+  border-bottom: 1px solid var(--border-main);
+  margin: 50px auto 70px;
+  max-width: max-content;
+  padding: 0 50px 10px;
+}
+.category .forum {
+  background: var(--bg-main);
+  padding: 15px;
+}
+.category .forum:nth-of-type(2n+1) {
+  flex: 0 0 max(35%, 350px);
+}
+.category .forum:nth-of-type(2n) {
+  flex-grow: 1;
+}
+.category .forum--border {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-secondary);
+  padding: 10px 15px 15px;
+  height: 100%;
+  gap: 10px;
+}
+.category .forum h3 {
+  margin: 0;
+  font-weight: 900;
+  font-size: 24px;
+  font-family: var(--font-accent);
+  text-transform: lowercase;
+}
+.category .forum--status {
+  display: flex;
+  gap: 5px;
+}
+.category .forum--stat {
+  background: var(--text-accent);
+  color: var(--bg-main);
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 8px 3px;
+  border-radius: 3px;
+  font-weight: 700;
+}
+.category .forum--stat.Old {
+  opacity: 0.5;
+}
+.category .forum--info {
+  margin-top: 5px;
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 1px;
+  line-height: 200%;
+}
+.category .forum--info b {
+  color: var(--text-accent);
+}
+.category .forum--info + .forum--latest {
+  display: none;
+}
+.category .forum--info br:first-child, .category .forum--info br:last-child {
+  display: none;
+}
+.category .forum--latest {
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 5px;
+}
+.category .forum--latest a:first-of-type {
+  font-weight: 700;
+  font-size: var(--mBody);
+}
+.category .forum--latest a:nth-of-type(2) {
+  color: var(--text-main);
+}
+.category .forum--latest span {
+  opacity: 0.65;
+}
+.category .forum--links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 5px;
+}
+.category .forum--links br {
+  display: none;
+}
+.category .forum--links a {
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.category .forum--links:empty {
+  display: none;
+}
+.category .forum--links .subforums {
+  font-size: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.category .forum--links .subforums a {
+  font-size: var(--xsBody);
+}
+.category .forum--links .subforums a.subforums-macro {
+  display: none;
+}
+.category.c-1 .forum, .category.subforums .forum {
+  flex: 0 0 calc(50% - (15px / 2));
+}
+
 /*******************************
     Board Stats
 ********************************/

@@ -35,9 +35,71 @@ a {
     text-decoration: none;
     color: var(--text-accent);
 }
-.container {
-    display: grid;
-    grid-template-columns: 300px auto;
+#navstrip {
+    text-transform: uppercase;
+    font-size: var(--xsBody);
+    letter-spacing: 1px;
+    padding: 5px 8px;
 
-    min-height: 1000vh;
+    #idx & {
+        display: none;
+    }
+
+    i {
+        margin: 0 5px;
+    }
+
+    & + br,
+    & + br + br {
+        display: none;
+    }
+}
+
+/* Important */
+.newstext,
+.hide {
+    display: none !important;
+}
+body:not(.g-4) {
+    .staffOnly {
+        display: none;
+    }
+}
+body:not(.g-2) {
+    .guestOnly {
+        display: none;
+    }
+}
+body.g-2 {
+    .memOnly {
+        display: none;
+    }
+}
+.fa-solid,
+.fa-regular,
+.fa-light,
+.fa-thin,
+.fa-brand {
+    font-style: normal !important;
+}
+.fa-solid,
+.fa-regular,
+.fa-light,
+.fa-thin {
+    font-family: 'Font Awesome 6 Pro' !important;
+}
+.fa-brand {
+    font-family: 'Font Awesome 6 Brands' !important;
+}
+.fa-solid {
+    font-weight: 700 !important;
+}
+.fa-regular {
+    font-weight: 500 !important;
+}
+.fa-light {
+    font-weight: 300 !important;
+}
+.fa-thin {
+    font-weight: 100 !important;
 }

@@ -8,8 +8,4 @@ const navHTML = `
 </div>
 `;
 
-<<<<<<< HEAD
 //document.querySelector('nav').innerHTML = navHTML;
-=======
-document.querySelector('nav').innerHTML = navHTML;
->>>>>>> 35d037e83d560abda0a273ca72c5bd7a235fb493

@@ -10,11 +10,26 @@ header {
 
     #idx & {
         min-height: 50vh;
+
+        h1 {
+            font-size: 80px;
+        }
+    }
+    body:not(#idx) > & {
+        padding: 35px 35px 55px 25px;
+
+        h1 {
+            font-size: 40px;
+        }
+    }
+    body:not(#idx):not(#ST) > & {
+        p {
+            display: none;
+        }
     }
 
     h1 {
         font-family: var(--font-accent);
-        font-size: 10ch;
         margin: 0;
     }
 
@@ -25,5 +40,9 @@ header {
         font-size: var(--xsBody);
         text-align: center;
         line-height: 200%;
+
+        b {
+            color: var(--text-accent);
+        }
     }
 }
