@@ -7,8 +7,8 @@ Clone the repo to a folder of choice on your computer. Navigate into the repo us
 
 **To Run**
 
-`npm run sass` will build the .scss files into a single styles.css stylesheet
+`npm install` and then `yarn install` to allow for building of scss files; only run on first install.
 
-`npm run prefix` will take your styles.css stylesheet and autoprefix it to be compatible with browsers wherever possible, then stored this in prefixed/styles.css
+`yarn build` will take your scss and js files, auto-prefix, and run other optimizations, but will _not_ minify any of these files so that they remain readable and editable in future when the code is copy/pasted on-site.
 
-The project runs off the styles.css sheet created in the SASS build and will update on page refresh every time you save any of your .scss files.
+`yarn watch` will do the above but will watch for changes and update files accordingly. ctrl + c will end the watch and return control to your CLI.

@@ -1,0 +1,37 @@
+/*******************************
+    Variables
+********************************/
+:root {
+    --xsBody: 8px;
+    --sBody: 10px;
+    --mBody: 12px;
+    --lBody: 14px;
+    --xlBody: 16px;
+}
+
+.smFont {
+    --xsBody: 8px;
+    --sBody: 10px;
+    --mBody: 12px;
+    --lBody: 14px;
+    --xlBody: 16px;
+    --sizeBoost: 0px;
+}
+
+.mdFont {
+    --xsBody: 10px;
+    --sBody: 12px;
+    --mBody: 14px;
+    --lBody: 16px;
+    --xlBody: 18px;
+    --sizeBoost: 2px;
+}
+
+.lgFont {
+    --xsBody: 12px;
+    --sBody: 14px;
+    --mBody: 16px;
+    --lBody: 18px;
+    --xlBody: 20px;
+    --sizeBoost: 4px;
+}
