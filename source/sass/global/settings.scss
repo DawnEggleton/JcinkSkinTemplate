@@ -1,0 +1,15 @@
+tag-question {
+    &::after {
+        content: '\f107';
+    }
+    &.is-active::after {
+        content: '\f106';
+    }
+}
+ul {
+    li {
+        &::before {
+            content: '\f068';
+        }
+    }
+}

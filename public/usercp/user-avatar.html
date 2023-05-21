@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!--Styles-->
-        <link rel="stylesheet" href="../../css/styles.css" />
+        <link rel="stylesheet" href="../../dist/css/styles.css" />
 
         <!--Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,14 +22,15 @@
 		<script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
 		<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
 		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
-        <script src="../../js/clipboard.js"></script>
+        <script src="../../dist/js/clipboard.js"></script>
 
         <!--Settings-->
-        <script type='text/javascript' src='../../js/settings.js'></script>
-        <link rel="stylesheet" href="../../css/settings.css" />
+        <script type='text/javascript' src='../../dist/js/settings.js'></script>
+        <link rel="stylesheet" href="../../dist/css/settings.css" />
     </head>
     <body id="UserCP" class="dark g-4 code-24">
-        <!--Header-->
+        <div id="navstrip" align="left">&nbsp;<a href="">Vae Victis</a><i class="fa-regular fa-ellipsis"></i><a href="">Link</a><i class="fa-regular fa-ellipsis"></i>Text</div>
+<!--Header-->
         <header></header>
 
         <!--Navigation-->
@@ -38,6 +39,11 @@
         <!--Main Body-->
         <main>
             <a name="top"></a>
+		<div class="category-collapse">
+			<button onclick="collapseCats()"><i class="fas fa-minus"></i> Collapse All</button>
+			<button onclick="expandCats()"><i class="fas fa-plus"></i> Expand All</button>
+		</div>
+		<div class="category-list">
             
 <!--
 TABLE TO FIX IE/6 ISSUE
@@ -286,7 +292,8 @@ function checkform()
 </select>&nbsp;<input type="submit" value="Go" class="forminput"></form></div> 
         </main>
 
-        <!-- Copyright Information -->
+        </div>
+<!-- Copyright Information -->
         <div class="tableborder" align="center">
             <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
                 <div class="copyright" align="center">
@@ -309,8 +316,8 @@ function checkform()
         <script src="../templates/nav.js"></script>
 
         <!--Scripts-->
-        <script src="../../js/defaultsMenus.js"></script>
-        <script src="../../js/functions.js"></script>
-        <script src="../../js/scripts.js"></script>
+        <script src="../../dist/js/defaultsMenus.js"></script>
+        <script src="../../dist/js/functions.js"></script>
+        <script src="../../dist/js/scripts.js"></script>
     </body>
 </html>

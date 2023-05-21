@@ -1,0 +1,239 @@
+@import '../global/sizes.scss';
+
+/*******************************
+    Topic List
+********************************/
+#SF {
+    main {
+        .category-list > .category {
+            & + table {
+                border-top: 1px solid var(--border-secondary);
+            }
+        }
+        .category-list > table {
+            display: block;
+            background: var(--bg-main);
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--border-secondary);
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            &  > tbody {
+                display: flex;
+
+                & > tr {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    gap: 20px;
+
+                    & > td {
+                        width: max-content;
+                        max-width: 100%;
+                        display: flex;
+                        gap: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+.topiclist {
+    &--info {
+        & ~ table {
+            border-top: 1px solid var(--border-secondary);
+        }
+
+        & > * {
+            border-top: 1px solid var(--border-secondary);
+            background: var(--bg-main);
+            padding: 8px 10px;
+            text-transform: uppercase;
+            font-size: var(--xsBody);
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        & + br {
+            display: none;
+        }
+    }
+}
+.topic {
+    flex: 0 0 100%;
+    background: var(--bg-main);
+    padding: 15px;
+
+    @media only screen and (min-width: $sm) {
+        flex: 0 0 calc(50% - (15px / 2));
+    }
+
+    &--border {
+        border: 1px solid var(--border-secondary);
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        h3 {
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: var(--lBody);
+        }
+    }
+
+    &--stats {
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+    &--stat {
+        background: var(--text-accent);
+        color: var(--bg-main);
+        font-size: var(--xsBody);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 4px 8px 3px;
+        border-radius: 3px;
+
+        a {
+            color: var(--bg-main);
+        }
+    }
+
+    &--info {
+        text-transform: uppercase;
+        font-size: var(--xsBody);
+        letter-spacing: 1px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 2px;
+    }
+
+    &--poster {
+        display: flex;
+        flex-direction: column;
+        border-left: 1px solid var(--border-main);
+        padding: 5px 10px;
+        flex: 0 0 100%;
+
+        @media only screen and (min-width: $xs) {
+            flex: 0 0 calc(50% - (10px / 2));
+        }
+
+        @media only screen and (min-width: $sm) {
+            flex: 0 0 100%;
+        }
+
+        @media only screen and (min-width: $md) {
+            flex: 0 0 calc(50% - (10px / 2));
+        }
+
+        a {
+            font-size: var(--sBody);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        &:first-child {
+            a::before {
+                content: 'written by ';
+            }
+        }
+
+        &:last-child {
+            text-align: right;
+            justify-self: end;
+            border-right: 1px solid var(--border-main);
+            border-left: 0;
+
+            @media only screen and (min-width: $xs) {
+                text-align: left;
+                justify-self: start;
+                border-right: 0;
+                border-left: 1px solid var(--border-main);
+            }
+
+            @media only screen and (min-width: $sm) {
+                text-align: right;
+                justify-self: end;
+                border-right: 1px solid var(--border-main);
+                border-left: 0;
+            }
+
+            @media only screen and (min-width: $md) {
+                text-align: left;
+                justify-self: start;
+                border-right: 0;
+                border-left: 1px solid var(--border-main);
+            }
+            a::before {
+                content: 'last post by ';
+            }
+        }
+    }
+
+    label {
+        position: absolute;
+        right: 8px;
+        top: 8px;
+
+        & > input {
+            display: none;
+
+            & + div {
+                background: var(--bg-secondary);
+                border: 1px solid var(--border-secondary);
+                width: 16px;
+                height: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: transparent;
+                cursor: pointer;
+            }
+            &:checked + div {
+                color: var(--text-main);
+            }
+        }
+    }
+}
+.macro {
+    &--button {
+        font-size: var(--xlBody);
+        background: var(--text-accent);
+        color: var(--bg-main);
+        min-width: 30px;
+        display: flex;
+        min-height: 30px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+        max-width: max-content;
+        max-height: max-content;
+        line-height: 100%;
+        padding: 5px 10px;
+        transition-duration: 0.25s;
+
+        &:hover {
+            background: var(--bg-secondary);
+            color: var(--text-accent);
+        }
+    }
+    &--message {
+        text-align: center;
+        margin: 0 auto 20px;
+        text-transform: uppercase;
+        font-size: var(--xsBody);
+        letter-spacing: 1px;
+        background: var(--bg-main);
+        padding: 7px 8px 5px;
+        border: 1px solid var(--border-secondary);
+    }
+}

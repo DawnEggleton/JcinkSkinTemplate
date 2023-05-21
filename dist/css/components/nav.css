@@ -1,0 +1,50 @@
+/*******************************
+    Navigation
+********************************/
+.nav {
+  border-bottom: 1px solid var(--border-main);
+  padding: 10px 8px;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: var(--bg-main);
+  position: sticky;
+  top: 27px;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center; }
+  #idx .nav,
+  #SC .nav {
+    top: 0; }
+  .lrgFont .nav {
+    top: 30px; }
+  .nav--left, .nav--right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center; }
+  .nav--right #navstrip {
+    display: none; }
+  .nav--right i {
+    font-size: var(--sBody); }
+  .nav--right button {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--text-accent);
+    cursor: pointer; }
+    .nav--right button[disabled] {
+      display: none; }
+    body:not(.light) .nav--right button .fa-brightness-low {
+      display: none; }
+    body.light .nav--right button .fa-brightness {
+      display: none; }
+    body:not(.lrgFont) .nav--right button .fa-arrow-down-left-and-arrow-up-right-to-center {
+      display: none; }
+    body.lrgFont .nav--right button .fa-arrow-up-right-and-arrow-down-left-from-center {
+      display: none; }

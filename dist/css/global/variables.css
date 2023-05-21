@@ -1,0 +1,40 @@
+/*******************************
+    Variables
+********************************/
+:root {
+  --font-accent: 'Bodoni Moda', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --bg-texture: url(https://files.jcink.net/uploads2/victis/pexels_aleksandr_slobodianyk_989946.jpg);
+  --bg-opacity: 0.1;
+  --xsBody: 8px;
+  --sBody: 10px;
+  --mBody: 12px;
+  --lBody: 14px;
+  --xlBody: 16px;
+  --black: rgb(34, 34, 34);
+  --offblack: rgb(49, 49, 49);
+  --grey-dark: rgb(70, 70, 70);
+  --grey-mid: rgb(100, 100, 100);
+  --grey-light: rgb(145, 145, 145);
+  --white: rgb(196, 196, 196);
+  --white-40: rgba(196, 196, 196, 0.4);
+  --accent-dark: 74, 96, 94;
+  --accent-mid: 122, 157, 154;
+  --accent-muted: 138, 157, 156;
+  --accent-main: 139, 174, 171;
+  --bg-main: var(--black);
+  --bg-secondary: var(--offblack);
+  --bg-accent: rgba(var(--accent-dark), 1);
+  --border-main: var(--grey-light);
+  --border-secondary: var(--grey-mid);
+  --text-main: var(--grey-light);
+  --text-secondary: var(--white);
+  --text-faded: var(--white-40);
+  --text-accent: rgba(var(--accent-main), 1); }
+
+.lrgFont {
+  --xsBody: 10px;
+  --sBody: 12px;
+  --mBody: 14px;
+  --lBody: 16px;
+  --xlBody: 18px; }

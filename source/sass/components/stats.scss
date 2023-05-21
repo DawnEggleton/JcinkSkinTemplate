@@ -1,0 +1,144 @@
+@import '../global/sizes.scss';
+
+/*******************************
+    Board Stats
+********************************/
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 10px;
+
+    @media only screen and (min-width: $sm) {
+        margin: 50px;
+    }
+
+    &--border {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--border-secondary);
+        padding: 10px 15px 15px;
+        height: 100%;
+        gap: 10px;
+    }
+
+    & > * {
+        background: var(--bg-main);
+        padding: 15px;
+        height: 335px;
+        flex: 0 0 100%;
+
+        @media only screen and (min-width: $sm) {
+            flex: 0 0 calc(50% - (15px / 2));
+        }
+
+        h3 {
+            margin: 0;
+            font-weight: 900;
+            font-size: 24px;
+            font-family: var(--font-accent);
+            text-transform: lowercase;
+            color: var(--text-accent);
+        }
+    }
+
+    &--info {
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+    &--stat {
+        text-transform: uppercase;
+        font-size: var(--xsBody);
+        letter-spacing: 1px;
+        font-weight: 700;
+        background: var(--text-accent);
+        color: var(--bg-main);
+        padding: 4px 8px 3px;
+        border-radius: 3px;
+    }
+
+    &--current {
+        flex-grow: 1;
+        font-family: var(--font-accent);
+        text-transform: lowercase;
+        font-size: var(--xlBody);
+        font-weight: 700;
+        margin: 10px 0;
+
+        a {
+            color: var(--text-main);
+        }
+    }
+
+    &--links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        a {
+            font-size: var(--xsBody);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    }
+
+    &--right {
+        table {
+            display: block;
+            margin-top: 10px;
+
+            tbody {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                height: 195px;
+                overflow: auto;
+                padding-right: 15px;
+
+                tr {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    text-transform: uppercase;
+                    font-size: var(--xsBody);
+                    letter-spacing: 1px;
+                    padding: 0 15px;
+
+                    &:not(:last-child) {
+                        padding-bottom: 15px;
+                        border-bottom: 1px solid var(--border-secondary);
+                    }
+
+                    td {
+                        width: 100%;
+                        padding: 0;
+
+                        &:first-child {
+                            display: flex;
+                            flex-direction: column;
+                            font-size: 0;
+                            gap: 2px;
+
+                            a {
+                                &:first-child {
+                                    font-size: var(--mBody);
+                                    letter-spacing: 0;
+                                }
+                                &:nth-child(2) {
+                                    font-size: var(--xsBody);
+                                    color: var(--text-secondary);
+                                }
+                                &:last-child {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
