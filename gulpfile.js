@@ -14,32 +14,18 @@
     const gulpSass = require('gulp-sass'),
           postcss = require('gulp-postcss'),
           autoprefixer = require('autoprefixer'),
-<<<<<<< HEAD
-=======
-          pxtorem = require('postcss-pxtorem'),
->>>>>>> 270d5233b73e3b7faf6e34d097daa3a989e20dff
           concat = require('gulp-concat');
 
     // PostCSS settings
     var processors = [
         autoprefixer({
             grid: true
-<<<<<<< HEAD
-=======
-        }),
-        pxtorem({
-            replace: true
->>>>>>> 270d5233b73e3b7faf6e34d097daa3a989e20dff
         })
     ];
 
     themes.forEach(function(theme) {
 
-<<<<<<< HEAD
         var srcPath = 'source',
-=======
-        var srcPath = 'source/',
->>>>>>> 270d5233b73e3b7faf6e34d097daa3a989e20dff
           modulesPath = 'node_modules';
 
         var distPath = 'dist';
