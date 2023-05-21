@@ -113,94 +113,6 @@ function profileScripts() {
 }
 
 
-function formatTracking(universes, characters) {
-    universes.sort((a, b) => {
-        if(!a.TabOrder || a.TabOrder === '' || a.TabOrder === 'NaN') {
-            if(a.Universe < b.Universe) {
-                return 2;
-            } else if(a.Universe > b.Universe) {
-                return 4;
-            }  else {
-                return 3;
-            }
-        } else if(parseInt(a.TabOrder) < parseInt(b.TabOrder)) {
-            return -1;
-        } else if(parseInt(a.TabOrder) > parseInt(b.TabOrder)) {
-            return 1;
-        } else if(a.Universe < b.Universe) {
-            return -1;
-        } else if(a.Universe > b.Universe) {
-            return 1;
-        }  else {
-            return 0;
-        }
-    });
-    characters.sort((a, b) => {
-        if(a.Character < b.Character) {
-            return 1;
-        } else if(a.Character > b.Character) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-
-    let html = ``, labels = ``;
-    universes.forEach(universe => {
-        let uniChars = characters.filter(character => character.UniverseCode === universe.UniverseCode && character.MemberID === `1`);
-        let characterCode = ``;
-        uniChars.forEach(character => {
-            let age, extras;
-
-            if(character.Age === 'immortal') {
-                age = character.Age;
-            } else {
-                age = `${character.Age} years old`;
-            }
-
-            if (character.Extras && character.Extras !== ``) {
-                let array = character.Extras.split('|');
-                extras = array.map(item => `<span>${item}</span>`).join('');
-            } else {
-                extras = ``;
-            }
-
-            characterCode += `<div class="character">
-                <div class="character--topper">
-                    <div class="character--image">
-                        <img src="${character.Image}">
-                    </div>
-                    <div class="character--title">
-                        <h3>${character.Character}</h3>
-                    </div>
-                </div>
-                <div class="character--info">
-                    <div class="character--flex">
-                        <span>${character.Face}</span><span>${age}</span><span>${character.Gender}</span><span>${character.Pronouns}</span>${extras}
-                    </div>
-                </div>`;
-            if(character.Summary && character.Summary !== ``) {
-                characterCode += `<div class="character--summary"><div class="scroll">${character.Summary}</div></div>`;
-            }
-            
-            characterCode += `</div>`;
-        });
-        html += `<tag-tab data-tab="#${universe.UniverseCode}" class="profile--universe">
-            <h2>${universe.Universe}</h2>
-            <h3 class="profile--accordion-trigger open">Characters</h3>
-            <div data-universe="#${universe.UniverseCode}" class="profile--characters profile--accordion-content open">${characterCode}</div>
-            <h3 class="profile--accordion-trigger">Threads</h3>
-            <div data-universe="#${universe.UniverseCode}" class="profile--tracking profile--accordion-content" data-forums="${universe.RelatedWriting}"></div>
-            <h3 class="profile--accordion-trigger">Development</h3>
-            <div data-universe="#${universe.UniverseCode}" class="profile--dev profile--accordion-content" data-forums="${universe.RelatedDev}"></div>
-        </tag-tab>`;
-
-        labels += `<a href="#${universe.UniverseCode}">${universe.Universe}</a>`;
-    });
-    document.querySelector('.profile--unis tag-labelset').insertAdjacentHTML('beforeend', labels);
-    document.querySelector('.profile--tracking-wrap').insertAdjacentHTML('beforeend', html);
-}
-
 /*** Fizzyelf profile thread tracker functions with edits by Lux
      https://fizzyelf.jcink.net ***/
 async function FillTracker(username, params = {}) {
@@ -220,6 +132,7 @@ async function FillTracker(username, params = {}) {
 
         trackerwrap: params.thisTracker || $('.profile--tracking'),
         devwrap: params.thisDevTracker || $('.profile--dev'),
+        owingwrap: params.thisOwingTracker || $('.profile--owing'),
 
         pagelimit: params.pageLimit || 5,
         previousposters: params.previousPosters || {},
@@ -257,6 +170,7 @@ async function FillTracker(username, params = {}) {
         console.log(`Ajax error loading page: ${href} - ${err.status} ${err.statusText}`);
         config.trackerwrap.append('<div class="profile--nothreads">Search Failed</div>');
         config.devwrap.append('<div class="profile--nothreads">Search Failed</div>');
+        config.owingwrap.append('<div class="profile--nothreads">Search Failed</div>');
         return;
     }
     doc = new DOMParser().parseFromString(data, 'text/html');
@@ -267,10 +181,18 @@ async function FillTracker(username, params = {}) {
     } else {
         let boardmessage = $('#board-message .tablefill .postcolor', doc).text();
         config.trackerwrap.append(`<div class="profile--nothreads">${boardmessage}</div>`);
+        config.devwrap.append(`<div class="profile--nothreads">${boardmessage}</div>`);
+        config.owingwrap.append(`<div class="profile--nothreads">${boardmessage}</div>`);
         return;
     }
   
     await parseResults(href, config, 0);
+
+    let owingCount = 0;
+    if(document.querySelectorAll('.profile--owing').length > 0) {
+        owingCount = document.querySelector('.profile--owing').querySelectorAll('.profile--thread').length;
+        document.querySelector('.profile--owing').previousElementSibling.insertAdjacentHTML('beforeend', ` (${owingCount})`);
+    }
 }
 parseResults = async (searchlink, config, page) => {
     let doc;
@@ -282,6 +204,8 @@ parseResults = async (searchlink, config, page) => {
         console.log(`Ajax error loading page: ${searchlink} - ${err.status} ${err.statusText}`);
         console.log(err)
         config.trackerwrap.append('<div class="profile--nothreads">Search Failed</div>');
+        config.devwrap.append('<div class="profile--nothreads">Search Failed</div>');
+        config.owingwrap.append('<div class="profile--nothreads">Search Failed</div>');
         return;
     }
     doc = new DOMParser().parseFromString(data, 'text/html');
@@ -299,7 +223,7 @@ parseResults = async (searchlink, config, page) => {
                 const title = $(cells[2]).find('td:nth-child(2) > a').first().text();
                 const threadDesc = $(cells[2]).find('.desc').text();
                 const lastPoster = $(cells[7]).find('a[href*=showuser]').text().trim().replace(/&#([0-9]+);/g, (m, p1) => String.fromCharCode(p1));
-                const lastPosterId = $(cells[7]).find('a[href*=showuser]').attr('href');
+                const lastPosterId = $(cells[7]).find('a[href*=showuser]').attr('href').split('showuser=')[1];
                 let myturn = (config.username == lastPoster) ? 'Caught Up' : 'Owing';
                 if (config.previousposters[thread_id]) {
                     myturn = (lastPoster == config.previousposters[thread_id].replace(/&#([0-9]+);/g, (m, p1) => String.fromCharCode(p1))) ? 'Owing' : 'Caught Up';
@@ -360,7 +284,7 @@ parseResults = async (searchlink, config, page) => {
                                                 <i class="fa-duotone fa-circle-star" style="--fa-primary-color: var(--bg-secondary); --fa-secondary-color: var(--text-accent); --fa-secondary-opacity: 1;"></i>
                                             </div>
                                             <div class="profile--thread-title">
-                                                <a href="?showtopic=${thread_id}">${title}</a>
+                                                <a href="?showtopic=${thread_id}&view=getnewpost">${title}</a>
                                                 <span>${threadDesc}</span>
                                             </div>
                                         </div>
@@ -370,7 +294,7 @@ parseResults = async (searchlink, config, page) => {
                                         </div>
                                     </div>
                                 `);
-                                if(document.querySelectorAll('.profile--owing').length > 0) {
+				                if(document.querySelectorAll('.profile--owing').length > 0 && myturn.toLowerCase() === 'owing') {
                                     document.querySelector('.profile--owing').insertAdjacentHTML('beforeend', `
                                         <div class="profile--thread ${myturn.replace(/ /g, '').toLowerCase()}" aria-described-by="${myturn}">
                                             <div class="profile--thread-topper">
@@ -379,7 +303,7 @@ parseResults = async (searchlink, config, page) => {
                                                     <i class="fa-duotone fa-circle-star" style="--fa-primary-color: var(--bg-secondary); --fa-secondary-color: var(--text-accent); --fa-secondary-opacity: 1;"></i>
                                                 </div>
                                                 <div class="profile--thread-title">
-                                                    <a href="?showtopic=${thread_id}">${title}</a>
+                                                    <a href="?showtopic=${thread_id}&view=getnewpost">${title}</a>
                                                     <span>${threadDesc}</span>
                                                 </div>
                                             </div>
@@ -389,7 +313,7 @@ parseResults = async (searchlink, config, page) => {
                                             </div>
                                         </div>
                                     `);
-                                }
+				                }
                             }
                         }
                     });
