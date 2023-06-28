@@ -1,8 +1,0 @@
-tag-question::after {
-  content: '\f107'; }
-
-tag-question.is-active::after {
-  content: '\f106'; }
-
-ul li::before {
-  content: '\f068'; }
