@@ -1,0 +1,26 @@
+/*******************************
+    Reset
+********************************/
+* {
+    position: relative;
+    box-sizing: border-box;
+}
+body {
+    line-height: 200%;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+}
+img {
+    max-width: 100%;
+    object-fit: cover;
+}
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+a {
+    text-decoration: none;
+}

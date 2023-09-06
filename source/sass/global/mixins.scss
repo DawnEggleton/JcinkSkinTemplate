@@ -1,0 +1,70 @@
+$size-xxs: 480px !default;
+$size-xs: 600px !default;
+$size-sm: 768px !default;
+$size-md: 1024px !default;
+$size-lg: 1280px !default;
+$size-xl: 1440px !default;
+$size-xxl: 1900px !default;
+
+@mixin mq-up($class) {
+    @if $class == xxs {
+        @media (min-width: ($size-xxs +1)) { @content; }
+    }
+    @else if $class == xs {
+        @media (min-width: ($size-xs +1)) { @content; }
+    }
+    @else if $class == sm {
+        @media (min-width: ($size-sm +1)) { @content; }
+    }
+    @else if $class == md {
+        @media (min-width: ($size-md +1)) { @content; }
+    }
+    @else if $class == lg {
+        @media (min-width: ($size-lg +1)) { @content; }
+    }
+    @else if $class == xl {
+        @media (min-width: ($size-xl +1)) { @content; }
+    }
+    @else if $class == xxl {
+        @media (min-width: ($size-xxl +1)) { @content; }
+    }
+    @else {
+        @warn "Breakpoint mixin supports: xxs to xxl";
+    }
+}
+
+@mixin mq-down($class) {
+    @if $class == xxs {
+        @media (max-width: $size-xxs) { @content; }
+    }
+    @else if $class == xs {
+        @media (max-width: $size-xs) { @content; }
+    }
+    @else if $class == sm {
+        @media (max-width: $size-sm) { @content; }
+    }
+    @else if $class == md {
+        @media (max-width: $size-md) { @content; }
+    }
+    @else if $class == lg {
+        @media (max-width: $size-lg) { @content; }
+    }
+    @else if $class == xl {
+        @media (max-width: $size-xl) { @content; }
+    }
+    @else if $class == xxl {
+        @media (max-width: $size-xxl) { @content; }
+    }
+}
+
+@mixin fluid-type($font-min, $font-max, $screen-min, $screen-max) {
+    font-size: #{$font-min}px;
+
+    @media only screen and (min-width: #{$screen-min}px) {
+        font-size: calc(#{$font-min}px + #{($font-max - $font-min)} * (100vw - #{$screen-min}px) / (#{$screen-max} - #{$screen-min}));
+    }
+
+    @media only screen and (min-width: #{$screen-max}px) {
+        font-size: #{$font-max}px;
+    }
+}

@@ -1,6 +1,8 @@
-@import 'global/sizes';
+@import 'global/mixins';
+@import 'global/reset';
 @import 'global/variables';
 @import 'global/global';
+@import 'global/utilities';
 
 @import 'components/nav';
 @import 'components/header';
@@ -11,6 +13,7 @@
 @import 'components/profile';
 @import 'components/members';
 @import 'components/webpages';
-@import 'components/templates';
-@import 'components/ucp';
 @import 'components/defaults';
+@import 'components/ucp';
+@import 'components/modcp';
+@import 'components/store';
