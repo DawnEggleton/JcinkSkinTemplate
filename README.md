@@ -15,9 +15,10 @@ Clone the repo to a folder of choice on your computer. Navigate into the repo us
 
 **Note**
 
-If you want to upload to GIT and use GIT's pages to display the functional mock on a publically-accessible webpage, you will need to remove the following line from the `.gitignore` file so that your final CSS and JS files are transmitted to GIT and are therefore accessible:
+If you want to upload to GIT and use GIT's pages to display the functional mock on a publically-accessible webpage, you will need to remove the following two lines from the `.gitignore` file so that your final CSS and JS files are transmitted to GIT and are therefore accessible:
 
 `dist/*`
+`public/*`
 
 **Available Mixins**
 
