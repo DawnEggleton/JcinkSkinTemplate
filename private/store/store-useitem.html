@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		@@include('../templates/head.html', {
+		@@include('../../source/templates/head.html', {
             "prefix": "../../dist"
         })   
 	</head>
     <body id="store" class="dark g-4 store-useitem">
-		@@include('../templates/header.html', {
+		@@include('../../source/templates/header.html', {
             "prefix": "../.."
         })
-      @@include('../templates/nav.html', {
+      @@include('../../source/templates/nav.html', {
             "prefix": "../.."
         })
 
@@ -234,7 +234,7 @@ function load_alerts() {
         </div> 
 
         
-        @@include('../templates/scripts.html', {
+        @@include('../../source/templates/scripts.html', {
             "prefix": "../../dist"
         })   
     </body>
