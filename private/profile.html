@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @@include('./templates/head.html', {
+            "prefix": "../dist"
+        })
+    </head>
+    <body id="Profile" class="g-4">
+        @@include('./templates/header.html', {
+            "prefix": ".."
+        })
+      @@include('./templates/nav.html', {
+            "prefix": ".."
+        })
+
+        <!--Main Body-->
+        <main>
+            <a name="top"></a>
+		
+
+            <!--Profile-->
+            <header>
+                <h1>Lux</h1>
+                <p>she/her<i>&mdash; 31 &mdash;</i> gmt-4:00</p>                
+            </header>
+            <div class="profile--player">
+                <div class="profile--border">
+                    <div class="profile--column first-row">
+                        <div class="profile--item">
+                            <b>Violence</b>
+                            <span>Explicit</span>
+                        </div>
+                        <div class="profile--item">
+                            <b>Sexual Content</b>
+                            <span>Non-explicit</span>
+                        </div>
+                        <div class="profile--item">
+                            <b>Mature Language</b>
+                            <span>Explicit</span>
+                        </div>
+                        <div class="profile--item">
+                            <b>Contact</b>
+                            <span>Discord</span>
+                        </div>
+                    </div>
+                    <div class="profile--column second-row">
+                        <div class="profile--item">
+                            <b>On-Site</b>
+                            <span>
+                                <a href="">Topics</a>
+                                <a href="">Posts</a>
+                                <a href="">Development</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="profile--column second-row">
+                        <div class="profile--item">
+                            <b>Off-Site</b>
+                            <span>
+                                <a href="">Character Tumblr</a>
+                                <a href="">Coding Tumblr</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="profile--column first-row">
+                        <div class="profile--item">
+                            <b>Please Avoid</b>
+                            <span>Explicit sexual content</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile--content">
+                <div class="profile--border">
+                    <div class="profile--unis">
+                        <tag-labels>
+                            <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                            <tag-labelset></tag-labelset>
+                            <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                        </tag-labels>
+                    </div>
+
+                    <div class="profile--tracking-wrap"></div>
+                </div>
+            </div>
+
+            <script>
+                fetch("https://opensheet.elk.sh/1gspirnJDGinhNdZB9zQc85e3VjAFmV4KmXxHt8qnLBs/Universes")
+                .then((response) => response.json())
+                .then((universes) => {
+
+                    fetch("https://opensheet.elk.sh/1gspirnJDGinhNdZB9zQc85e3VjAFmV4KmXxHt8qnLBs/Characters")
+                    .then((response) => response.json())
+                    .then((characters) => {
+
+                        let allForums = [];
+                        let allDev = [];
+                            universes.forEach(universe => {
+                            let forums = universe.RelatedWriting ? universe.RelatedWriting.split(', ') : [];
+                            allForums = [...allForums, ...forums];
+                            let dev = universe.RelatedDev ? universe.RelatedDev.split(', ') : [];
+                            allDev = [...allDev, ...dev];
+                        });
+                        
+                        formatTracking(universes, characters);
+                        
+                        /** auto-tracker code by FizzyElf - https://fizzyelf.jcink.net **/
+                        trackerParams = {
+                            //include
+                            includeForumIds: allForums,
+                            includeForumIds: [],
+                            devForumIds: allDev,
+                            ignoreForumIds: [],
+                        
+                        
+                            //set indicators
+                            indicators: ['fa-solid fa-check', 'fa-solid fa-star'], 
+                        }
+                        
+                        //FillTracker(`lux`, trackerParams);
+
+
+                    }).then(() => {
+                        //Then run scripts
+                        profileScripts();
+                    });
+                });
+            </script>
+        </main>
+
+        </div>
+<!-- Copyright Information -->
+        <div class="tableborder" align="center">
+            <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                <div class="copyright" align="center">
+                    Powered by 
+                    <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                    (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                    <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                    ) © 2020 &nbsp;
+                    <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                    <br>
+                    Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                    <a href="index.php?act=Mobile">Mobile Version</a> · 
+                    <a href="index.php?act=privacy">Privacy Policy</a>
+                </div>
+            </div>
+        </div> 
+
+        
+        @@include('./templates/scripts.html', {
+            "prefix": "../dist"
+        })   
+    </body>
+</html>

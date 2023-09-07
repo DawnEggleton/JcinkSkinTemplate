@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @@include('../templates/head.html', {
+            "prefix": "../../dist"
+        })   
+    </head>
+    <body id="UserCP" class="dark g-4 code-01">
+        @@include('../templates/header.html', {
+            "prefix": "../.."
+        })
+      @@include('../templates/nav.html', {
+            "prefix": "../.."
+        })
+
+        <!--Main Body-->
+        <main>
+	    
+            <!--
+            TABLE TO FIX IE/6 ISSUE
+            The one where 23% margin + 100% table = 123% in IE6 o_O
+            -->
+            <table width="100%" cellspacing="0" cellpadding="0">
+            <tbody><tr>
+             <td id="ucpmenu" valign="top">
+                <div class="maintitle">Menu</div>
+                 <!--IBF.TSLLINKS-->
+                 <!-- Messenger -->
+                 <div class="pformstrip">Messenger</div>
+                 <p>
+                 · <a href="https://totl.jcink.net/index.php?act=Msg&amp;CODE=04"><strong>Compose New Message</strong></a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=Msg&amp;CODE=01"><strong>Go to Inbox</strong></a><br>
+                 &nbsp; '— <a href="https://totl.jcink.net/index.php?act=Msg&amp;CODE=01&amp;VID=sent">Sent Items</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=Msg&amp;CODE=delete">Empty PM Folders</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=Msg&amp;CODE=07">Edit Storage Folders</a><br>
+                 · <a href="javascript:window.open('index.php?showuser=309&amp;CODE=friends','Friends','width=620,height=460,resizable=yes,scrollbars=yes');void(0);">My Friends/Contacts</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=Msg&amp;CODE=14">Archive Messages</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=Msg&amp;CODE=20">Saved (Unsent) PMs</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=Msg&amp;CODE=30">Message Tracker</a><br>
+                 </p>
+                 <!-- End Messenger -->
+                 <!-- Topic Tracker -->
+                 <div class="pformstrip">Subscriptions</div>
+                 <p>
+                 · <a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=26">View Topics</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=50">View Forums</a><br>
+                 </p>
+                 <!-- Profile -->
+                 <div class="pformstrip">Personal Profile</div>
+                 <p>
+                 · <a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=01">Edit Profile info</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=22">Edit Signature</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=54">Edit Sub-accounts</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=24">Edit Avatar Settings</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=52">Change Username</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=photo">Change Personal Photo</a><br>
+                 </p>
+                 <!-- Options -->
+                 <div class="pformstrip">Options</div>
+                 <p>
+                 <!--IBF.OPTION_LINKS-->
+                 · <a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=alerts_settings">Alert Settings</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=02">Email Settings</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=04">Board Settings</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=40">Shoutbox Settings</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=06">Skin and Languages</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=08">Change Email Address</a><br>
+                 · <a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=28">Change Password</a>
+                 </p>
+             </td>
+             <td style="padding:2px"><!-- --></td>
+            <!-- Start main CP area -->
+             <td id="ucpcontent" valign="top">
+              <div class="maintitle">Welcome to your control panel </div>            
+                             <script language="javascript" type="text/javascript">
+            <!--
+            
+            var LocationMax  = "50000";
+            var InterestMax  = "50000";
+            
+            function CheckLength(Type) {
+                LocationLength  = document.theForm.Location.value.length;
+                InterestLength  = document.theForm.Interests.value.length;
+                message  = "";
+            
+                if (Type == "location") {
+                    if (LocationMax !=0) {
+                        message = "Location: The maximum allowed length is " + LocationMax + " characters.";
+                    } else {
+                        message = "";
+                    }
+                    alert(message + "  You have used " + LocationLength + " characters so far.");
+                }
+                if (Type == "interest") {
+                    if (InterestMax !=0) {
+                        message = "Interests: The maximum allowed length is " + InterestMax + " characters.";
+                    } else {
+                        message = "";
+                    }
+                    alert(message + "  You have used " + InterestLength + " characters so far.");
+                }
+                
+            }
+            
+            function ValidateProfile() {
+            
+                LocationLength  = document.theForm.Location.value.length;
+                InterestLength  = document.theForm.Interests.value.length;
+            
+                errors = "";
+            
+                if (LocationMax !=0) {
+                    if (LocationLength > LocationMax) {
+                        errors = "Location:  The maximum allowed length is " + LocationMax + " characters.  You have used: " + LocationLength;
+                    }
+                }
+                if (InterestMax !=0) {
+                    if (InterestLength > InterestMax) {
+                        errors = errors + "  Interests:  The maximum allowed length is " + InterestMax + " characters.  You have used: " + InterestLength;
+                    }
+                } 
+                
+                if (errors != "") {
+                    alert(errors);
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            //-->
+            </script>
+            <form action="https://totl.jcink.net/index.php?auth_key=c7667d50c5de503233d4240de12e6b54" method="post" name="theForm" onsubmit="return ValidateProfile()">
+            <input type="hidden" name="act" value="UserCP">
+            <input type="hidden" name="CODE" value="21">
+            
+            <!--{REQUIRED.FIELDS}-->
+            <div class="pformstrip">Your personal profile, this section is optional</div>
+            <table width="100%">
+            <!--{MEMBERTITLE}-->
+              <tbody><tr id="field-birthday">
+              <td class="pformleft"><b>Date of Birth</b></td>
+              <td class="pformright">
+              <select name="day" class="forminput"><option value="0">--</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10" selected="">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select> 
+              <select name="month" class="forminput"><option value="0">--</option><option value="1">January</option><option value="2">February</option><option value="3">March</option><option value="4" selected="">April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select> 
+              <select name="year" class="forminput"><option value="0">--</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option><option value="1989">1989</option><option value="1988">1988</option><option value="1987">1987</option><option value="1986">1986</option><option value="1985">1985</option><option value="1984">1984</option><option value="1983">1983</option><option value="1982">1982</option><option value="1981">1981</option><option value="1980">1980</option><option value="1979">1979</option><option value="1978" selected="">1978</option><option value="1977">1977</option><option value="1976">1976</option><option value="1975">1975</option><option value="1974">1974</option><option value="1973">1973</option><option value="1972">1972</option><option value="1971">1971</option><option value="1970">1970</option><option value="1969">1969</option><option value="1968">1968</option><option value="1967">1967</option><option value="1966">1966</option><option value="1965">1965</option><option value="1964">1964</option><option value="1963">1963</option><option value="1962">1962</option><option value="1961">1961</option><option value="1960">1960</option><option value="1959">1959</option><option value="1958">1958</option><option value="1957">1957</option><option value="1956">1956</option><option value="1955">1955</option><option value="1954">1954</option><option value="1953">1953</option><option value="1952">1952</option><option value="1951">1951</option><option value="1950">1950</option><option value="1949">1949</option><option value="1948">1948</option><option value="1947">1947</option><option value="1946">1946</option><option value="1945">1945</option><option value="1944">1944</option><option value="1943">1943</option><option value="1942">1942</option><option value="1941">1941</option><option value="1940">1940</option><option value="1939">1939</option><option value="1938">1938</option><option value="1937">1937</option><option value="1936">1936</option><option value="1935">1935</option><option value="1934">1934</option><option value="1933">1933</option><option value="1932">1932</option><option value="1931">1931</option><option value="1930">1930</option><option value="1929">1929</option><option value="1928">1928</option><option value="1927">1927</option><option value="1926">1926</option><option value="1925">1925</option><option value="1924">1924</option><option value="1923">1923</option><option value="1922">1922</option><option value="1921">1921</option><option value="1920">1920</option><option value="1919">1919</option><option value="1918">1918</option><option value="1917">1917</option><option value="1916">1916</option><option value="1915">1915</option><option value="1914">1914</option><option value="1913">1913</option><option value="1912">1912</option><option value="1911">1911</option><option value="1910">1910</option><option value="1909">1909</option><option value="1908">1908</option><option value="1907">1907</option><option value="1906">1906</option><option value="1905">1905</option><option value="1904">1904</option><option value="1903">1903</option><option value="1902">1902</option><option value="1901">1901</option><option value="1900">1900</option><option value="1899">1899</option><option value="1898">1898</option><option value="1897">1897</option><option value="1896">1896</option><option value="1895">1895</option><option value="1894">1894</option><option value="1893">1893</option><option value="1892">1892</option><option value="1891">1891</option><option value="1890">1890</option><option value="1889">1889</option><option value="1888">1888</option><option value="1887">1887</option><option value="1886">1886</option><option value="1885">1885</option><option value="1884">1884</option><option value="1883">1883</option><option value="1882">1882</option><option value="1881">1881</option><option value="1880">1880</option><option value="1879">1879</option><option value="1878">1878</option><option value="1877">1877</option><option value="1876">1876</option><option value="1875">1875</option><option value="1874">1874</option><option value="1873">1873</option><option value="1872">1872</option><option value="1871">1871</option><option value="1870">1870</option><option value="1869">1869</option><option value="1868">1868</option><option value="1867">1867</option><option value="1866">1866</option><option value="1865">1865</option><option value="1864">1864</option><option value="1863">1863</option><option value="1862">1862</option><option value="1861">1861</option><option value="1860">1860</option><option value="1859">1859</option><option value="1858">1858</option><option value="1857">1857</option><option value="1856">1856</option><option value="1855">1855</option><option value="1854">1854</option><option value="1853">1853</option><option value="1852">1852</option><option value="1851">1851</option><option value="1850">1850</option><option value="1849">1849</option><option value="1848">1848</option><option value="1847">1847</option><option value="1846">1846</option><option value="1845">1845</option><option value="1844">1844</option><option value="1843">1843</option><option value="1842">1842</option><option value="1841">1841</option><option value="1840">1840</option><option value="1839">1839</option><option value="1838">1838</option><option value="1837">1837</option><option value="1836">1836</option><option value="1835">1835</option><option value="1834">1834</option><option value="1833">1833</option><option value="1832">1832</option><option value="1831">1831</option><option value="1830">1830</option><option value="1829">1829</option><option value="1828">1828</option><option value="1827">1827</option><option value="1826">1826</option><option value="1825">1825</option><option value="1824">1824</option><option value="1823">1823</option><option value="1822">1822</option><option value="1821">1821</option><option value="1820">1820</option><option value="1819">1819</option><option value="1818">1818</option><option value="1817">1817</option><option value="1816">1816</option><option value="1815">1815</option><option value="1814">1814</option><option value="1813">1813</option><option value="1812">1812</option><option value="1811">1811</option><option value="1810">1810</option><option value="1809">1809</option><option value="1808">1808</option><option value="1807">1807</option><option value="1806">1806</option><option value="1805">1805</option><option value="1804">1804</option><option value="1803">1803</option><option value="1802">1802</option><option value="1801">1801</option><option value="1800">1800</option><option value="1799">1799</option><option value="1798">1798</option><option value="1797">1797</option><option value="1796">1796</option><option value="1795">1795</option><option value="1794">1794</option><option value="1793">1793</option><option value="1792">1792</option><option value="1791">1791</option><option value="1790">1790</option><option value="1789">1789</option><option value="1788">1788</option><option value="1787">1787</option><option value="1786">1786</option><option value="1785">1785</option><option value="1784">1784</option><option value="1783">1783</option><option value="1782">1782</option><option value="1781">1781</option><option value="1780">1780</option><option value="1779">1779</option><option value="1778">1778</option><option value="1777">1777</option><option value="1776">1776</option><option value="1775">1775</option><option value="1774">1774</option><option value="1773">1773</option><option value="1772">1772</option><option value="1771">1771</option><option value="1770">1770</option><option value="1769">1769</option><option value="1768">1768</option><option value="1767">1767</option><option value="1766">1766</option><option value="1765">1765</option><option value="1764">1764</option><option value="1763">1763</option><option value="1762">1762</option><option value="1761">1761</option><option value="1760">1760</option><option value="1759">1759</option><option value="1758">1758</option><option value="1757">1757</option><option value="1756">1756</option><option value="1755">1755</option><option value="1754">1754</option><option value="1753">1753</option><option value="1752">1752</option><option value="1751">1751</option><option value="1750">1750</option><option value="1749">1749</option><option value="1748">1748</option><option value="1747">1747</option><option value="1746">1746</option><option value="1745">1745</option><option value="1744">1744</option><option value="1743">1743</option><option value="1742">1742</option><option value="1741">1741</option><option value="1740">1740</option><option value="1739">1739</option><option value="1738">1738</option><option value="1737">1737</option><option value="1736">1736</option><option value="1735">1735</option><option value="1734">1734</option><option value="1733">1733</option><option value="1732">1732</option><option value="1731">1731</option><option value="1730">1730</option><option value="1729">1729</option><option value="1728">1728</option><option value="1727">1727</option><option value="1726">1726</option><option value="1725">1725</option><option value="1724">1724</option><option value="1723">1723</option><option value="1722">1722</option><option value="1721">1721</option><option value="1720">1720</option><option value="1719">1719</option><option value="1718">1718</option><option value="1717">1717</option><option value="1716">1716</option><option value="1715">1715</option><option value="1714">1714</option><option value="1713">1713</option><option value="1712">1712</option><option value="1711">1711</option><option value="1710">1710</option><option value="1709">1709</option><option value="1708">1708</option><option value="1707">1707</option><option value="1706">1706</option><option value="1705">1705</option><option value="1704">1704</option><option value="1703">1703</option><option value="1702">1702</option><option value="1701">1701</option><option value="1700">1700</option><option value="1699">1699</option><option value="1698">1698</option><option value="1697">1697</option><option value="1696">1696</option><option value="1695">1695</option><option value="1694">1694</option><option value="1693">1693</option><option value="1692">1692</option><option value="1691">1691</option><option value="1690">1690</option><option value="1689">1689</option><option value="1688">1688</option><option value="1687">1687</option><option value="1686">1686</option><option value="1685">1685</option><option value="1684">1684</option><option value="1683">1683</option><option value="1682">1682</option><option value="1681">1681</option><option value="1680">1680</option><option value="1679">1679</option><option value="1678">1678</option><option value="1677">1677</option><option value="1676">1676</option><option value="1675">1675</option><option value="1674">1674</option><option value="1673">1673</option><option value="1672">1672</option><option value="1671">1671</option><option value="1670">1670</option><option value="1669">1669</option><option value="1668">1668</option><option value="1667">1667</option><option value="1666">1666</option><option value="1665">1665</option><option value="1664">1664</option><option value="1663">1663</option><option value="1662">1662</option><option value="1661">1661</option><option value="1660">1660</option><option value="1659">1659</option><option value="1658">1658</option><option value="1657">1657</option><option value="1656">1656</option><option value="1655">1655</option><option value="1654">1654</option><option value="1653">1653</option><option value="1652">1652</option><option value="1651">1651</option><option value="1650">1650</option><option value="1649">1649</option><option value="1648">1648</option><option value="1647">1647</option><option value="1646">1646</option><option value="1645">1645</option><option value="1644">1644</option><option value="1643">1643</option><option value="1642">1642</option><option value="1641">1641</option><option value="1640">1640</option><option value="1639">1639</option><option value="1638">1638</option><option value="1637">1637</option><option value="1636">1636</option><option value="1635">1635</option><option value="1634">1634</option><option value="1633">1633</option><option value="1632">1632</option><option value="1631">1631</option><option value="1630">1630</option><option value="1629">1629</option><option value="1628">1628</option><option value="1627">1627</option><option value="1626">1626</option><option value="1625">1625</option><option value="1624">1624</option><option value="1623">1623</option><option value="1622">1622</option><option value="1621">1621</option><option value="1620">1620</option><option value="1619">1619</option><option value="1618">1618</option><option value="1617">1617</option><option value="1616">1616</option><option value="1615">1615</option><option value="1614">1614</option><option value="1613">1613</option><option value="1612">1612</option><option value="1611">1611</option><option value="1610">1610</option><option value="1609">1609</option><option value="1608">1608</option><option value="1607">1607</option><option value="1606">1606</option><option value="1605">1605</option><option value="1604">1604</option><option value="1603">1603</option><option value="1602">1602</option><option value="1601">1601</option><option value="1600">1600</option><option value="1599">1599</option><option value="1598">1598</option><option value="1597">1597</option><option value="1596">1596</option><option value="1595">1595</option><option value="1594">1594</option><option value="1593">1593</option><option value="1592">1592</option><option value="1591">1591</option><option value="1590">1590</option><option value="1589">1589</option><option value="1588">1588</option><option value="1587">1587</option><option value="1586">1586</option><option value="1585">1585</option><option value="1584">1584</option><option value="1583">1583</option><option value="1582">1582</option><option value="1581">1581</option><option value="1580">1580</option><option value="1579">1579</option><option value="1578">1578</option><option value="1577">1577</option><option value="1576">1576</option><option value="1575">1575</option><option value="1574">1574</option><option value="1573">1573</option><option value="1572">1572</option><option value="1571">1571</option><option value="1570">1570</option><option value="1569">1569</option><option value="1568">1568</option><option value="1567">1567</option><option value="1566">1566</option><option value="1565">1565</option><option value="1564">1564</option><option value="1563">1563</option><option value="1562">1562</option><option value="1561">1561</option><option value="1560">1560</option><option value="1559">1559</option><option value="1558">1558</option><option value="1557">1557</option><option value="1556">1556</option><option value="1555">1555</option><option value="1554">1554</option><option value="1553">1553</option><option value="1552">1552</option><option value="1551">1551</option><option value="1550">1550</option><option value="1549">1549</option><option value="1548">1548</option><option value="1547">1547</option><option value="1546">1546</option><option value="1545">1545</option><option value="1544">1544</option><option value="1543">1543</option><option value="1542">1542</option><option value="1541">1541</option><option value="1540">1540</option><option value="1539">1539</option><option value="1538">1538</option><option value="1537">1537</option><option value="1536">1536</option><option value="1535">1535</option><option value="1534">1534</option><option value="1533">1533</option><option value="1532">1532</option><option value="1531">1531</option><option value="1530">1530</option><option value="1529">1529</option><option value="1528">1528</option><option value="1527">1527</option><option value="1526">1526</option><option value="1525">1525</option><option value="1524">1524</option></select>
+              </td>
+              </tr>
+            <tr id="field-website">
+              <td class="pformleft"><b>Website URL</b></td>
+              <td class="pformright"><input type="text" size="40" maxlength="1200" name="WebSite" value="http://" class="forminput"></td>
+            </tr> 
+            <tr id="field-location">
+              <td class="pformleft"><b>Location</b></td>
+              <td class="pformright"><input type="text" size="40" name="Location" value="" class="forminput"></td>
+            </tr>
+            <tr id="field-interests">
+              <td class="pformleft" valign="top"><b>Interests</b><br>(<a href="javascript:CheckLength(&quot;interest&quot;);">Check Length</a>)</td>
+              <td class="pformright"><textarea cols="60" rows="10" name="Interests" class="forminput" wrap="soft"></textarea></td>
+            </tr>
+            
+              <tr id="field_32">
+              <td class="pformleft" valign="top">
+                <label for="field_32_input" style="font-weight: bold;">Content Warnings</label>
+                <br>Does your profile contain potentially-triggering material? List it here!</td>
+                <td class="pformright">            <textarea cols="60" rows="5" name="field_32" class="forminput" id="field_32_input" wrap="soft">--</textarea></td>
+              </tr>  <tr id="field_74">
+              <td class="pformleft" valign="top">
+                <label for="field_74_input" style="font-weight: bold;">Account Type</label>
+                <br></td>
+                <td class="pformright">            <select name="field_74" class="forminput" id="field_74_input"><option value="char">Character</option>
+            <option value="mem" selected="">Member</option>
+            </select></td>
+              </tr> <tr id="field_33">
+              <td class="pformleft" valign="top">
+                <label for="field_33_input" style="font-weight: bold;">Full Name</label>
+                <br>What is your character's full name? (All given names and surname)</td>
+                <td class="pformright">            <textarea cols="60" rows="5" name="field_33" class="forminput" id="field_33_input" wrap="soft">--</textarea></td>
+              </tr>  <tr id="field_11">
+              <td class="pformleft" valign="top">
+                <label for="field_11_input" style="font-weight: bold;">Prefers (Nickname)</label>
+                <br></td>
+                <td class="pformright">            <textarea cols="60" rows="5" name="field_11" class="forminput" id="field_11_input" wrap="soft">lux</textarea></td>
+              </tr>  <tr id="field_12">
+              <td class="pformleft" valign="top">
+                <label for="field_12_input" style="font-weight: bold;">Pronouns</label>
+                <br></td>
+                <td class="pformright">            <input type="text" size="50" name="field_12" value="she/her" class="forminput" id="field_12_input"></td>
+              </tr>
+            <tr>
+              <td class="pformstrip" colspan="2" align="center"><input type="submit" value="Amend my profile" class="forminput"></td>
+            </tr>
+            </tbody></table>
+            </form> </td>
+            </tr>
+            </tbody></table>
+            <!-- end main CP area -->
+            <br clear="all"><div align="right"><form onsubmit="if(document.jumpmenu.f.value == -1){return false;}" action="https://totl.jcink.net/index.php?act=SF" method="get" name="jumpmenu">
+            <input type="hidden" name="act" value="SF">
+            <input type="hidden" name="s" value="">
+            <select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ document.jumpmenu.submit() }" class="forminput">
+                <optgroup label="Site Jump">
+                    <option value="sj_home">Forum Home</option>
+                    <option value="sj_search">Search</option>
+                    <option value="sj_help">Help</option>
+                </optgroup>
+                <optgroup label="Forum Jump">
+                    <option value="-1">A Test Category</option>
+                    <option value="1">&nbsp;&nbsp;- A Test Forum </option><!--fx:1-->
+                </optgroup>
+            </select>&nbsp;<input type="submit" value="Go" class="forminput"></form></div>
+                    <!-- Copyright Information -->
+            
+            <div class="tableborder" align="center"><div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;"><div class="copyright" align="center">Powered by <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a> (<a href="http://jcink.com" target="_blank">Jcink.com </a> <a href="https://jcink.com" target="_blank">Forum Hosting</a>) © 2022 &nbsp;<a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a> <br>Page creation time: 0.0624 <!-- http://totl.b1.jcink.com -->   · <a href="index.php?act=privacy">Privacy Policy</a></div></div></div> <script src="//files.jcink.net/html/quickedit/qe.js?v=1.01"></script> 
+                    <script language="JavaScript" type="text/javascript">
+            <!--
+            function buddy_pop() { window.open('index.php?act=buddy&s=','BrowserBuddy','width=250,height=500,resizable=yes,scrollbars=yes'); }
+            function chat_pop(cw,ch)  { window.open('index.php?s=&act=chat&pop=1','Chat','width='+cw+',height='+ch+',resizable=yes,scrollbars=yes'); }
+            function multi_page_jump( url_bit, total_posts, per_page )
+            {
+            pages = 1; cur_st = parseInt(""); cur_page  = 1;
+            if ( total_posts % per_page == 0 ) { pages = total_posts / per_page; }
+             else { pages = Math.ceil( total_posts / per_page ); }
+            msg = "Please enter a page number to jump to between 1 and" + " " + pages;
+            if ( cur_st > 0 ) { cur_page = cur_st / per_page; cur_page = cur_page -1; }
+            show_page = 1;
+            if ( cur_page < pages )  { show_page = cur_page + 1; }
+            if ( cur_page >= pages ) { show_page = cur_page - 1; }
+             else { show_page = cur_page + 1; }
+            userPage = prompt( msg, show_page );
+            if ( userPage > 0  ) {
+                if ( userPage < 1 )     {    userPage = 1;  }
+                if ( userPage > pages ) { userPage = pages; }
+                if ( userPage == 1 )    {     start = 0;    }
+                else { start = (userPage - 1) * per_page; }
+                window.location = url_bit + "&st=" + start;
+            }
+            }
+            
+            Collapse=""
+            Expand=""
+            
+            
+            
+            //-->
+            </script>
+            
+            <!--IBF.BANNER-->
+            <div id="logostrip">
+              <a href="https://totl.jcink.net/index.php?" title="Board Home"></a>
+            </div>
+            <!-- IE6/Win TABLE FIX -->
+            <table id="submenu" width="100%" cellspacing="6">
+            <tbody><tr>
+             <td><a href="index.php">Home</a><!--IBF.RULES--></td>
+            
+             <td align="right">
+            
+             <img src="https://files.jcink.net/style_images/1/atb_help.gif" alt="" border="0">&nbsp;<a href="https://totl.jcink.net/index.php?act=Help">Help</a>&nbsp; &nbsp;&nbsp;<img src="https://files.jcink.net/style_images/1/atb_search.gif" alt="" border="0">&nbsp;<a href="https://totl.jcink.net/index.php?act=Search&amp;f=">Search</a>&nbsp; &nbsp;&nbsp;<img src="https://files.jcink.net/style_images/1/atb_members.gif" alt="" border="0">&nbsp;<a href="https://totl.jcink.net/index.php?act=Members">Members</a>&nbsp; &nbsp;&nbsp;<img src="https://files.jcink.net/style_images/1/atb_calendar.gif" alt="" border="0">&nbsp;<a href="https://totl.jcink.net/index.php?act=calendar">Calendar</a>&nbsp; &nbsp;&nbsp; <img src="https://files.jcink.net/style_images/1/shop.png" alt="" border="0">&nbsp;<a href="?act=store">Shop</a>&nbsp; &nbsp;&nbsp;<img src="https://files.jcink.net/style_images/1/atb_shoutbox.gif" border="0">&nbsp;<a href="https://totl.jcink.net/index.php?&amp;act=Shoutbox">Shoutbox</a>
+            
+               <!--IBF.CHATLINK-->
+               <!--IBF.TSLLINK--> 
+             </td>
+            
+            
+            </tr>
+            </tbody></table>
+            
+            <div align="center">
+            
+            <!-- Ad Removal / Premium Board -->
+            
+            </div>
+            
+            
+            <span id="sub_bar" style="display:none;"> · <span id="subaccounts_menu">
+            <form action="https://totl.jcink.net/index.php?&amp;act=Login&amp;CODE=01&amp;CookieDate=1" name="subswitch" method="POST">
+            <input type="hidden" name="auth_key" value="c7667d50c5de503233d4240de12e6b54">
+            <input type="hidden" name="UserName" value="subacct">
+            <input type="hidden" name="PassWord" value="subacct">
+            <input type="hidden" name="referer" value="act=UserCP&amp;CODE=01">
+            <select class="forminput" name="sub_id" onchange="this.form.submit()">
+            <option value="------------" selected="selected">Switch Account</option>
+            <option value="1608">&nbsp;&nbsp;» abigail amesbury </option><option value="157">&nbsp;&nbsp;» adaline fawley </option><option value="838">&nbsp;&nbsp;» aiden mitchell </option><option value="1571">&nbsp;&nbsp;» ainara garcía rodríguez </option><option value="1093">&nbsp;&nbsp;» alastair knox </option><option value="995">&nbsp;&nbsp;» ambrose eaton </option><option value="856">&nbsp;&nbsp;» antoni rudaski </option><option value="669">&nbsp;&nbsp;» archer reid </option><option value="1567">&nbsp;&nbsp;» art abbott </option><option value="1147">&nbsp;&nbsp;» avery hayes </option><option value="261">&nbsp;&nbsp;» basil wilder </option><option value="1575">&nbsp;&nbsp;» benji aalto </option><option value="670">&nbsp;&nbsp;» bryn williams </option><option value="1146">&nbsp;&nbsp;» cameron towner </option><option value="855">&nbsp;&nbsp;» catarina delgado ferreira </option><option value="57">&nbsp;&nbsp;» connor king </option><option value="349">&nbsp;&nbsp;» cordelia hutchison </option><option value="1569">&nbsp;&nbsp;» daniel navarro </option><option value="395">&nbsp;&nbsp;» darcy de león </option><option value="906">&nbsp;&nbsp;» diana crawford </option><option value="1578">&nbsp;&nbsp;» diego serrano alvarez </option><option value="408">&nbsp;&nbsp;» draco malfoy </option><option value="58">&nbsp;&nbsp;» duncan taggart </option><option value="705">&nbsp;&nbsp;» ellis hill </option><option value="273">&nbsp;&nbsp;» emmalina fawley </option><option value="317">&nbsp;&nbsp;» evangeline carrow </option><option value="1577">&nbsp;&nbsp;» everest wilkes </option><option value="588">&nbsp;&nbsp;» felicity osborne </option><option value="901">&nbsp;&nbsp;» gavin dunbar </option><option value="587">&nbsp;&nbsp;» genevieve fink </option><option value="1565">&nbsp;&nbsp;» grace rowle </option><option value="1576">&nbsp;&nbsp;» graeme marshall </option><option value="1356">&nbsp;&nbsp;» griffin proudfoot </option><option value="836">&nbsp;&nbsp;» hallie rhodes </option><option value="1357">&nbsp;&nbsp;» harry mcdougall </option><option value="750">&nbsp;&nbsp;» heiko reynders </option><option value="1088">&nbsp;&nbsp;» hiroki becker </option><option value="1354">&nbsp;&nbsp;» holly harlan </option><option value="1145">&nbsp;&nbsp;» irina saidova </option><option value="1572">&nbsp;&nbsp;» jacob armstrong </option><option value="264">&nbsp;&nbsp;» jasper winslowe </option><option value="1573">&nbsp;&nbsp;» jeremiah baddock </option><option value="1568">&nbsp;&nbsp;» jonah goldman </option><option value="1324">&nbsp;&nbsp;» kristopher marchbanks </option><option value="1355">&nbsp;&nbsp;» lance austen </option><option value="1570">&nbsp;&nbsp;» leon wright </option><option value="315">&nbsp;&nbsp;» lottie fox </option><option value="1359">&nbsp;&nbsp;» lucas shycroft </option><option value="56">&nbsp;&nbsp;» magnolia atwood </option><option value="853">&nbsp;&nbsp;» malcolm murdock </option><option value="903">&nbsp;&nbsp;» malik emerson </option><option value="1089">&nbsp;&nbsp;» marica kovac </option><option value="112">&nbsp;&nbsp;» milo nott </option><option value="59">&nbsp;&nbsp;» montana quinn </option><option value="905">&nbsp;&nbsp;» nayara castellano cortez </option><option value="54">&nbsp;&nbsp;» nikolas kovac </option><option value="902">&nbsp;&nbsp;» nimue dunbar </option><option value="314">&nbsp;&nbsp;» noah clark </option><option value="482">&nbsp;&nbsp;» percy weasley </option><option value="1579">&nbsp;&nbsp;» peyton kennedy </option><option value="854">&nbsp;&nbsp;» raphael amesbury </option><option value="994">&nbsp;&nbsp;» rebecca warrington </option><option value="1564">&nbsp;&nbsp;» rebekah orpington </option><option value="1566">&nbsp;&nbsp;» reid cauldwell </option><option value="701">&nbsp;&nbsp;» renata orsini </option><option value="589">&nbsp;&nbsp;» ryan winters </option><option value="904">&nbsp;&nbsp;» salih binici </option><option value="1358">&nbsp;&nbsp;» sarah zhang </option><option value="1574">&nbsp;&nbsp;» sawyer coleman </option><option value="265">&nbsp;&nbsp;» simon flynn </option><option value="702">&nbsp;&nbsp;» sorren laugharne </option><option value="862">&nbsp;&nbsp;» spencer al-nazari </option><option value="907">&nbsp;&nbsp;» sterling de mitri </option><option value="863">&nbsp;&nbsp;» thomas urquart </option><option value="60">&nbsp;&nbsp;» tobias fletcher </option><option value="1148">&nbsp;&nbsp;» william talbot </option>
+            </select>
+            </form>
+            </span></span>
+            <table id="userlinks" width="100%" cellspacing="6">
+               <tbody><tr>
+                <td><strong>Logged in as:  <a href="https://totl.jcink.net/index.php?showuser=309" id="logged-in-as">salazar slytherin</a></strong> ( <a href="https://totl.jcink.net/index.php?act=Login&amp;CODE=03&amp;key=c7667d50c5de503233d4240de12e6b54" id="log-out">Log Out</a><span id="subacct_link"> · <a href="javascript:void(0);" onclick="document.getElementById('subacct_link').innerHTML=document.getElementById('sub_bar').innerHTML;">Switch Account</a></span>&nbsp;· <b><a href="https://totl.jcink.net/admin.php" id="admin-link" target="_blank">Admin CP</a></b> · <b><a href="https://totl.jcink.net/index.php?act=modcp" id="modcp-link">Mod CP</a></b>   )</td>
+                <td align="right">
+                  <b><a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=00" title="Edit my settings, such as signature, avatar and more..." id="my-controls">My Controls</a></b> · <a href="https://totl.jcink.net/index.php?act=Msg&amp;CODE=01" id="x-new-messages">0 New Messages</a>
+                  · <a href="https://totl.jcink.net/index.php?act=Search&amp;CODE=getnew" id="view-new-posts">View New Posts</a> · <a href="javascript:load_alerts();" title="Alerts" class="alerts-indicator alerts-new" id="alerts-indicator"><strong>Alerts (20)</strong></a> 
+                  
+                 <div id="recent-alerts" style="display: none;">
+                <div class="tableborder">
+                    <div class="pformstrip"> Recent Alerts <div style="float: right;"><a href="javascript:document.getElementById('recent-alerts').style.display='none';void(0);">[x]</a></div></div>
+                        <span id="recent-alerts-data"></span>
+                        <div class="pformstrip" style="text-align: center;">
+                            <a href="https://totl.jcink.net/index.php?act=UserCP&amp;CODE=alerts" title="View All Alerts">View All Alerts</a> · <a href="javascript:read_alerts();" title="Mark All Read">Mark All Read</a>
+                        </div>
+                    </div>
+                </div>
+                
+                  · <a href="javascript:window.open('index.php?showuser=309&amp;CODE=friends','Friends','width=620,height=460,resizable=yes,scrollbars=yes');void(0);" id="my-friends">My Friends</a><br>	  
+                 </td>
+               </tr>
+              </tbody></table>
+            <script>
+            
+                function read_alerts() {
+                    $('#recent-alerts').slideToggle('slow');
+                    $.get( "index.php?recent_alerts=1&read=1", function( data ) {
+                        $( "#recent_alerts_data" ).html( data );
+                    });
+                    $( ".alerts-indicator" ).html( "Alerts (0)");
+                }
+                
+                
+                function load_alerts() {
+                
+                        alert_link = $('.alerts-indicator').position().left-350;
+                        
+                        $('#recent-alerts').css({
+                            left: alert_link + "px",
+                        });
+                        
+                        if($('#recent-alerts').is(':visible')) {
+                            $('#recent-alerts').slideToggle('slow');
+                        } else {
+                            $.get( "index.php?recent_alerts=1", function( data ) {
+                                $( "#recent-alerts-data" ).html( data );
+                            });
+                            $("#recent-alerts").slideToggle('slow');
+                        }
+                }
+                    
+            </script>
+            
+            <style>
+              #recent-alerts {
+                position: absolute; 
+                width:400px;
+                z-index: 999;
+                text-align: left;
+              }
+            </style>
+             
+            <br>
+            <!-- Copyright Information -->
+                    <div class="tableborder" align="center">
+                        <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                            <div class="copyright" align="center">
+                                Powered by 
+                                <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                                (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                                <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                                ) © 2020 &nbsp;
+                                <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                                <br>
+                                Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                                <a href="index.php?act=Mobile">Mobile Version</a> · 
+                                <a href="index.php?act=privacy">Privacy Policy</a>
+                            </div>
+                        </div>
+                    </div> 
+            
+            <a name="to-bottom"></a></main>
+
+
+        
+        @@include('../templates/scripts.html', {
+            "prefix": "../../dist"
+        })   
+    </body>
+</html>

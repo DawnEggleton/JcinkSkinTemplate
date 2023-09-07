@@ -6,7 +6,8 @@
   "scripts": {
     "sass-lint": "sass-lint -c .sass-lint.yml 'source/sass/**/*.scss' -v -q",
     "build": "gulp jcink_build",
-    "watch": "gulp jcink"
+    "watch": "gulp jcink",
+    "files": "gulp fileinclude"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
     "IE >= 11"
   ],
   "devDependencies": {
+    "gulp-file-include": "^2.3.0",
     "webpack": "^4.39.3"
   }
 }

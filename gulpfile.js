@@ -14,7 +14,8 @@
     const gulpSass = require('gulp-sass'),
           postcss = require('gulp-postcss'),
           autoprefixer = require('autoprefixer'),
-          concat = require('gulp-concat');
+          concat = require('gulp-concat'),
+          fileinclude = require('gulp-file-include');
 
     // PostCSS settings
     var processors = [
@@ -74,6 +75,15 @@
               '/**/*.scss', gulp.series(sass, css));
             done();
         }
+
+        gulp.task('fileinclude', async function() {
+            gulp.src(['./private/**/*.html'])
+                .pipe(fileinclude({
+                    prefix: '@@',
+                    basepath: '@file'
+                }))
+                .pipe(gulp.dest('./public'));
+        });
 
         gulp.task(theme, gulp.series(exports.scripts, exports.styles, exports.fonts, watch));
 

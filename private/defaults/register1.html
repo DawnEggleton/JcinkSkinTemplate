@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @@include('../templates/head.html', {
+            "prefix": "../../dist"
+        })   
+    </head>
+    <body id="Reg" class="dark g-4">
+        @@include('../templates/header.html', {
+            "prefix": "../.."
+        })
+      @@include('../templates/nav.html', {
+            "prefix": "../.."
+        })
+
+        <!--Main Body-->
+        <main>
+			
+            <div class="tableborder">
+            
+              <div class="maintitle">&nbsp;Registration Terms &amp; Rules</div>
+            
+              <div class="pformstrip">In order to proceed, you must agree to the following:</div>
+            
+              <div class="tablepad">
+            
+            
+            <b>Forum Terms &amp; Rules:</b><br>
+            
+            
+            <br><br>Please remember that we are not responsible for any messages posted. We do not vouch for or warrant the accuracy, completeness or usefulness of any message, and are not responsible for the contents of any message. The messages express the views of the author of the message, not necessarily the views of this forum. 
+            Any user who feels that a posted message is objectionable is encouraged to contact us immediately by email. We have the ability to remove objectionable messages and we will make every effort to do so, within a reasonable time frame, if we determine that removal is necessary. 
+            You agree, through your use of this service, that you will not use this account to post any material which is knowingly false and/or defamatory, inaccurate, abusive,  hateful, harassing, obscene,  threatening, invasive of a person's privacy, or otherwise violative of any law. 
+            You agree not to post any copyrighted material unless the copyright is owned by you or by this forum.<br><br>
+            
+              </div>
+            
+                    <div class="row2"><label for="agree_cbox">
+            
+            <form action="https://playedgod.jcink.net/index.php?" method="post">
+            
+            <input type="hidden" name="act" value="Reg">
+            <input type="hidden" name="CODE" value="00">
+            <input type="hidden" name="coppa_pass" value="">
+            <input type="hidden" name="coppa_user" value="">
+            
+            <input class="checkbox" type="checkbox" name="read_tos" value="1"> <b>I have read, understood and agree to these rules and conditions</b></form></label></div>
+            <div class="row2" align="center"><input type="submit" value="Register" class="forminput"></div>
+            
+            
+            
+            </div>
+            
+            
+             
+          </main>
+
+        </div>
+<!-- Copyright Information -->
+        <div class="tableborder" align="center">
+            <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                <div class="copyright" align="center">
+                    Powered by 
+                    <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                    (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                    <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                    ) © 2020 &nbsp;
+                    <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                    <br>
+                    Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                    <a href="index.php?act=Mobile">Mobile Version</a> · 
+                    <a href="index.php?act=privacy">Privacy Policy</a>
+                </div>
+            </div>
+        </div> 
+
+        
+        @@include('../templates/scripts.html', {
+            "prefix": "../../dist"
+        })   
+    </body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @@include('./templates/head.html', {
+            "prefix": "../dist"
+        })  
+    </head>
+    <body id="Pages" class="g-4">
+        @@include('./templates/header.html', {
+            "prefix": ".."
+        })
+      @@include('./templates/nav.html', {
+            "prefix": ".."
+        })
+
+        <!--Main Body-->
+        <main>
+            <a name="top"></a>
+		
+            
+            <!--Webpage-->
+            <div class="webpage">
+                <div class="webpage--border">
+                    <div class="webpage--menu">
+                        <tag-labels>
+                            <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                            <tag-labelset>
+                                <a href="#register">register</a>
+                            </tag-labelset>
+                            <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                        </tag-labels>
+                    </div>
+                    <div class="webpage--content">
+                        <tag-tab data-tab="#register">
+                            <h2>Register</h2>
+                            <form id="register">
+                                <label>
+                                    <strong>Character</strong>
+                                    <input name="reg-character"
+                                            id="reg-character"
+                                            placeholder="Character Name"
+                                            required>
+                                </label>
+                                <label>
+                                    <strong>Universe</strong>
+                                    <select name="reg-universe"
+                                            id="reg-universe"
+                                            required>
+                                        <option value="">(select)</option>
+                                    </select>
+                                </label>
+                                <label>
+                                    <strong>Face</strong>
+                                    <input name="reg-face"
+                                            id="reg-face"
+                                            placeholder="Face Claim"
+                                            required>
+                                </label>
+                                <label>
+                                    <strong>Age</strong>
+                                    <input name="reg-age"
+                                            id="reg-age"
+                                            placeholder="Age"
+                                            type="number"
+                                            required>
+                                </label>
+                                <label>
+                                    <strong>Gender</strong>
+                                    <input name="reg-gender"
+                                            id="reg-gender"
+                                            placeholder="Gender"
+                                            required>
+                                </label>
+                                <label>
+                                    <strong>Pronouns</strong>
+                                    <input name="reg-pronouns"
+                                            id="reg-pronouns"
+                                            placeholder="Pronouns"
+                                            required>
+                                </label>
+                                <label class="fullWidth">
+                                    <strong>Image</strong>
+                                    <input name="reg-image"
+                                            id="reg-image"
+                                            placeholder="Image URL">
+                                </label>
+                                <label class="fullWidth">
+                                    <strong>Extras</strong>
+                                    <i>Separated by the | character (e.g., Occupation|Species|Faction). Spaces are fine within each extra, do not place spaces on either side of the separator.</i>
+                                    <input name="reg-extras"
+                                            id="reg-extras"
+                                            placeholder="Extras">
+                                </label>
+                                <label class="fullWidth">
+                                    <strong>Summary</strong>
+                                    <i>A couple lines at most. Need not be full sentences. An overview of the character.</i>
+                                    <textarea name="reg-summary"
+                                            id="reg-summary"
+                                            placeholder="Summary"
+                                            required></textarea>
+                                </label>
+                                <input type="hidden"
+                                        value="lux"
+                                        name="reg-member"
+                                        id="reg-member" />
+                                <input type="hidden"
+                                        value="1"
+                                        name="reg-memberid"
+                                        id="reg-memberid" />
+
+                                <div class="fullWidth form--end">
+                                    <button type="submit">Register</button>
+                                    <div class="form--run-warning form--warning"></div>
+                                </div>
+                            </form>
+                        </tag-tab>
+                    </div>
+                </div>
+            </div>
+            <script src="../dist/js/formatCharacters.js"></script>
+            <script>
+                //fetch reserves
+                fetch("https://opensheet.elk.sh/184AzHQJ_wVgzc1FBbtZHQB6C6h5EHfIA9_4ocE-9uS0/Universes")
+                .then((response) => response.json())
+                .then((data) => {
+                    formatUniverses(data);
+
+                    //fetch horse claims
+                    fetch("https://opensheet.elk.sh/184AzHQJ_wVgzc1FBbtZHQB6C6h5EHfIA9_4ocE-9uS0/Characters")
+                    .then((response) => response.json())
+                    .then((data) => {
+                        formatCharacters(data);
+                    })
+                    .then(() => {
+                        webpageFunctions();
+                    });
+                });
+            </script>
+        </main>
+
+        </div>
+<!-- Copyright Information -->
+        <div class="tableborder" align="center">
+            <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                <div class="copyright" align="center">
+                    Powered by 
+                    <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                    (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                    <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                    ) © 2020 &nbsp;
+                    <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                    <br>
+                    Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                    <a href="index.php?act=Mobile">Mobile Version</a> · 
+                    <a href="index.php?act=privacy">Privacy Policy</a>
+                </div>
+            </div>
+        </div> 
+
+        
+        @@include('./templates/scripts.html', {
+            "prefix": "../dist"
+        })   
+    </body>
+</html>
