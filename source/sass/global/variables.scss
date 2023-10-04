@@ -2,25 +2,9 @@
     Variables
 ********************************/
 :root {
-    --font-accent: 'Kristi', script;
-    --font-body: 'Inter', sans-serif;
-    
     --size-xs: 8px;
     --size-sm: 10px;
     --size-md: 12px;
     --size-lg: 14px;
     --size-xl: 16px;
-
-    --light: rgb(244, 241, 238);
-    --dark: rgb(115, 111, 107);
-    --darker: rgb(60, 58, 56);
-
-    --accent-dark: rgb(117, 19, 0);
-    --accent-bright: rgb(236, 112, 11);
-
-    --bg-primary: var(--light);
-    --bg-accent-gradient: linear-gradient(40deg, var(--accent-dark) 15%, var(--accent-bright) 85%);
-    --bg-neutral-gradient: linear-gradient(40deg, var(--text-primary) 15%, var(--bg-primary) 85%);
-
-    --text-primary: var(--dark);
 }
