@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+		<skin>
+
+		<skinname>Lux Template</skinname>
+		<date>Sunday 19th of November 2023 08:14:37 PM</date>
+
+		<stylesheet>
+		/** Copy/paste the /dist/css/styles.css file contents **/
+		</stylesheet>
+
+		<wrappers>
+		<!DOCTYPE html>
+<html>
+    <head> 
+	<title><% TITLE %></title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!--Styles-->
+	<% CSS %> 
+	
+	<!--Fonts-->
+	
+	
+	<!--Icons-->
+
+	
+	<!--Script Libraries-->
+	<% JAVASCRIPT %>
+	<script src="/dist/js/clipboard.js"></script>
+	<script src="/dist/js/functions.js"></script>
+	
+	<!--Settings-->
+	<script type='text/javascript' src='/dist/js/settings.js'></script>
+	<link rel="stylesheet" href="/dist/js/settings.css" />
+    </head> 
+    <body>
+	<a name="top"></a>
+	<nav><% NAVIGATION %></nav> <!-- This should be the full nav.html file from templates -->
+	<header><a href="/"><h1>Site Name</h1></a></header> <!-- This should be the full header.html file from templates -->
+
+	<main>
+		<% BOARD %> 
+		<% COPYRIGHT %>
+		<% BOARD HEADER %>
+	</main>
+	<script src="/dist/js/scripts.js"></script>
+    </body> 
+</html>
+
+		</wrappers>
+
+		<macros>
+		<item name='A_POLLONLY_B'><div class="macro--button">Closed</div></item>
+			<item name='A_POST'><div class="macro--button">New Topic</div></item>
+			<item name='A_REPLY'><div class="macro--button">Add Reply</div></item>
+			<item name='A_POLL'><div class="macro--button">New Poll</div></item>
+			<item name='A_STAR'></item>
+			<item name='B_HOT'>New Small</item>
+			<item name='B_HOT_NN'>Old Small</item>
+			<item name='B_LOCKED'>Closed Small</item>
+			<item name='B_MOVED'>Moved Small</item>
+			<item name='B_NEW'>New Small</item>
+			<item name='B_NORM'>Old Small</item>
+			<item name='B_PIN'>Old Small</item>
+			<item name='B_POLL'>New Small</item>
+			<item name='B_POLL_NN'>Old Small</item>
+			<item name='B_HOT_DOT'>New Small</item>
+			<item name='B_NEW_DOT'>New Small</item>
+			<item name='B_HOT_NN_DOT'>Old Small</item>
+			<item name='B_NORM_DOT'>Old Small</item>
+			<item name='B_POLL_DOT'>New Small</item>
+			<item name='B_POLL_NN_DOT'>Old Small</item>
+			<item name='C_LOCKED'>Read Only</item>
+			<item name='C_OFF'>Old</item>
+			<item name='C_OFF_CAT'>Old</item>
+			<item name='C_OFF_RES'>Old</item>
+			<item name='C_ON'>New</item>
+			<item name='C_ON_CAT'>New</item>
+			<item name='C_ON_RES'>New</item>
+			<item name='F_ACTIVE'></item>
+			<item name='F_NAV_SEP'>&nbsp;&rarr;&nbsp;</item>
+			<item name='F_NAV'> &raquo; </item>
+			<item name='F_STATS'></item>
+			<item name='NO_PHOTO'></item>
+			<item name='CAMERA'></item>
+			<item name='M_READ'><img alt="Read Message" title="Read Message" src="//files.jcink.net/themes/default/white-cube-small.png" /></item>
+			<item name='M_UNREAD'><img alt="Unread Message" title="Unread Message" src="//files.jcink.net/themes/default/red-cube-small.png" /></item>
+			<item name='P_DELETE'><span class="macro--small">Delete</span></item>
+			<item name='P_EDIT'><span class="macro--small">Edit</span></item>
+			<item name='P_EMAIL'></item>
+			<item name='P_MSG'></item>
+			<item name='P_QUOTE'><span class="macro--small">Quote</span></item>
+			<item name='P_WEBSITE'></item>
+			<item name='P_REPORT'><span class="macro--small">Report</span></item>
+			<item name='CAT_IMG'></item>
+			<item name='NEW_POST'></item>
+			<item name='LAST_POST'></item>
+			<item name='BR_REDIRECT'>Redirect</item>
+			<item name='ADDRESS_CARD'></item>
+			<item name='T_QREPLY'><div class="macro--button">Fast Reply</div></item>
+			<item name='T_OPTS'><div class="macro--button">Topic Options</div></item>
+			<item name='CAL_NEWEVENT'><div class="macro--button">Add Event</div></item>
+			<item name='F_RULES'></item>
+			<item name='WARN_0'></item>
+			<item name='WARN_1'></item>
+			<item name='WARN_2'></item>
+			<item name='WARN_3'></item>
+			<item name='WARN_4'></item>
+			<item name='WARN_5'></item>
+			<item name='WARN_ADD'></item>
+			<item name='WARN_MINUS'></item>
+			<item name='LOGO'><!-- To use this, add <{LOGO}> tag to the Board Wrapper, or this will NOT take effect -->	</item>
+			<item name='CUST_PROF'><div class="postbit"><div align='center'><!-- |avatar| --><br><!-- |title| --><br></div></div><div class="postbit"><img src='//files.jcink.net/themes/default/users.png'> Group: <!-- |member_group| --> </div><div class="postbit"><img src='//files.jcink.net/themes/default/posts.png'> Posts: <!-- |posts| --></div><div class="postbit"><img src='//files.jcink.net/themes/default/joined.png'> Joined: <!-- |member_joined| --></div><div class="postbit">Age: <!-- |age| --><br>Location: <!-- |location| --><br>Status: <!-- |status| --><br></div><br><div style="margin-left: 14px;"><!-- |warn_text| --> <!-- |warn_minus| --><!-- |warn_img| --><!-- |warn_add| --></div></item>
+			<item name='B_PLUS_SHOW'></item>
+			<item name='B_MINUS_HIDE'></item>
+			
+		</macros>
+
+		<templates>
+		
+		</templates>
+		
+		</skin>
