@@ -83,14 +83,8 @@
     
             </main>
 
-            <!--Templates-->
-            <script src="../templates/header.js"></script>
-            <script src="../templates/nav.js"></script>
-
-        <!--Scripts-->
-        <script src="../templates/import-templates-subfolder.js"></script>
-        <script src="../../dist/js/defaultsMenus.js"></script>
-        <script src="../../dist/js/functions.js"></script>
-        <script src="../../dist/js/scripts.js"></script>
+            @@include('../../source/templates/scripts.html', {
+              "prefix": "../../dist"
+          })  
     </body>
 </html>
