@@ -7,7 +7,7 @@ Clone the repo to a folder of choice on your computer. Navigate into the repo us
 
 **To Run**
 
-`npm install` to allow for building of SCSS files; only run on first install.
+`npm install` to allow for building of SCSS files; only run on first install. If you are using Windows and not Mac, a specific version of NPM (or lower) is needed to run Gulp (which this project now uses). Make sure to install NVM Windows (https://github.com/coreybutler/nvm-windows), instead of standard NPM, so that you'll be able to change your NPM version to one that works (historically, 14.0.0 has been functional).
 
 `yarn build` will take your SCSS and JS files, auto-prefix, and run other optimizations, but will _not_ minify any of these files so that they remain readable and editable in future when the code is copy/pasted on-site.
 
