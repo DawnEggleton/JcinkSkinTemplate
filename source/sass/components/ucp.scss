@@ -4,3 +4,908 @@
     User CP
 ********************************/
 
+//General
+#UserCP,
+#Msg {
+    main {
+        & > table:first-of-type {
+            display: block;
+
+            & ~ * {
+                display: none;
+            }
+
+            & > tbody {
+                display: block;
+
+                & > tr {
+                    display: flex;
+                    gap: var(--spacing-lg);
+                    
+                    & > td {
+                        &#ucpmenu {
+                            flex: 0 0 150px;
+
+                            .sticky {
+                                display: flex;
+                                flex-direction: column;
+                                gap: var(--spacing-sm);
+                                position: sticky;
+                                top: var(--menuHeight);
+                            }
+                            .menu-section {
+                                display: flex;
+                                flex-direction: column;
+                                gap: var(--spacing-sm);
+                            }
+                        }
+                        &:nth-child(2) {
+                            display: none;
+                        }
+                        &#ucpcontent {
+                            flex-grow: 1;
+                            padding: var(--spacing-md);
+
+                            @include mq-up(xs) {
+                                padding: var(--spacing-lg);
+                            }
+
+                            input[type="text"],
+                            input[type="file"],
+                            input[type="password"],
+                            textarea,
+                            select {
+                                width: 100%;
+                            }
+
+                            .maintitle {
+                                display: none;
+                            }
+                    
+                            form {
+                                & > table {
+                                    display: block;
+                        
+                                    & > tbody {
+                                        display: block;
+                        
+                                        & > tr {
+                                            display: flex;
+                                            flex-direction: column;
+                                            gap: var(--spacing-sm);
+                                            margin-bottom: var(--spacing-md);
+                    
+                                            @include mq-up(xxs) {
+                                                margin-bottom: var(--spacing-lg);
+                                            }
+                    
+                                            @include mq-up(sm) {
+                                                gap: var(--spacing-md);
+                                            }
+                        
+                                            .pformleft {
+                                                b,
+                                                strong,
+                                                label {
+                                                    line-height: 160%;
+                                                    display: block;
+                                                    max-width: max-content;
+                                                    padding: var(--spacing-xs) var(--spacing-sm);
+                    
+                                                    & ~ br {
+                                                        display: none;
+                                                    }
+                                                }
+                                            }
+                                            .pformright {
+                                                display: flex;
+                                                gap: var(--spacing-xs);
+                                                height: max-content;
+                                            }
+                    
+                                            & > :only-child {
+                                                grid-column: 1 / -1;
+                                            }
+                        
+                                            &:last-child {
+                                                .pformstrip:only-child {
+                                                    margin-bottom: 0;
+                                                    padding: 0;
+                                                    text-align: center;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//Specific Pages
+//Edit Profile
+#UserCP.code-01 {
+    #ucpcontent {
+        form {
+            & > .pformstrip {
+                display: none;
+            }
+            #field-birthday,
+            #field-website,
+            #field-location,
+            #field-interests {
+                display: none;
+            }
+            tbody {
+                display: grid !important;
+                gap: var(--spacing-lg);
+
+                @include mq-up(sm) {
+                    grid-template-columns: repeat(6, 1fr);
+                }
+
+                tr {
+                    margin-bottom: 0 !important;
+                    grid-column: span 3;
+
+                    .pformleft {
+                        display: flex;
+                        flex-direction: column;
+                        gap: var(--spacing-sm);
+                    }
+                }
+            }
+        }
+    }
+}
+//Edit Avatar
+#UserCP.code-24 {
+    p {
+        text-align: center;
+        padding-bottom: var(--spacing-md);
+    }
+    #gallery_form {
+        display: none;
+    }
+    .tablepad {
+        font-size: 0;
+
+        img {
+            max-width: 400px;
+            max-height: 400px;
+        }
+    }
+    .tablebasic + .tablebasic {
+        .pformleft {
+            display: none;
+        }
+        .pformright {
+            grid-column: 1 / -1;
+            display: block;
+            padding: 0;
+    
+            b,
+            strong,
+            label {
+                display: block;
+
+                & ~ br {
+                    display: none;
+                }
+            }
+        }
+        & + .pformstrip:last-child {
+            margin-bottom: 0;
+            padding: 0;
+        }
+    }
+}
+//Subaccounts
+#UserCP.code-54 {
+    #ucpcontent .tableborder {
+        &:first-child {
+            table > tbody {
+                display: flex;
+                flex-wrap: wrap;
+                gap: var(--spacing-md);
+
+                & > tr {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0;
+                    margin: 0;
+
+                    &:first-child {
+                        display: none;
+                    }
+                    &:last-child {
+                        flex: 0 0 100%;
+                    }
+                    &:nth-child(2):nth-last-child(2) {
+                        flex: 0 0 100% !important;
+
+                        td:only-child {
+                            position: relative !important;
+                            width: 100%;
+
+                            & > div {
+                                text-align: left !important;
+                            }
+                        }
+                    }
+
+                    .input-wrap {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+
+                    &:not(:first-child):not(:last-child) {
+                        flex: 0 0 100%;
+                        padding: var(--spacing-sm);
+        
+                        @include mq-up(sm) {
+                            flex: 0 0 calc(50% - (var(--spacing-md) / 2));
+                        }
+
+                        @include mq-up(smdm) {
+                            flex: 0 0 calc((100% / 3) - (var(--spacing-md) * 2 / 3));
+                        }
+
+                        & > td {
+                            margin: 0;
+                            padding: 0 0 0 calc(var(--spacing-sm) + 20px);
+                            text-align: left;
+
+                            &:first-child {
+                                padding-bottom: var(--spacing-sm);
+                                margin-top: -5px;
+                            }
+                            
+                            &:last-child {
+                                position: absolute;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &:not(:first-child) {
+            tr {
+                margin-bottom: 0;
+                margin-top: var(--spacing-md);
+            }
+            .pformleft {
+                line-height: 160%;
+                text-align: left;
+                display: block;
+                max-width: max-content;
+                padding: var(--spacing-xs) var(--spacing-sm);
+            }
+        }
+    }
+}
+//Edit Username
+#UserCP.code-52 {
+    .row2 + table {
+        .pformleft {
+            line-height: 160%;
+            text-align: left;
+            display: block;
+            max-width: max-content;
+            padding: var(--spacing-xs) var(--spacing-sm);
+        }
+    }
+}
+//Edit Password & Email
+#UserCP.code-28,
+#UserCP.code-08 {
+    form[name="form1"] {
+        & > table {
+            & > tbody {
+                & > tr {
+                    & > td {
+                        strong,
+                        b {
+                            line-height: 160%;
+                            text-align: left;
+                            display: block;
+                            max-width: max-content;
+                            padding: var(--spacing-xs) var(--spacing-sm);
+                        }
+                        &:first-child {
+                            width: 100%;
+                            b {
+                                & ~ br {
+                                    display: none;
+                                }
+                            }
+                        }
+                        &:last-child {
+                            display: flex;
+                            gap: 5px;
+                            height: max-content;
+
+                            input {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            & + .pformstrip {
+                margin-bottom: 0;
+                padding: 0;
+            }
+        }
+    }
+}
+//Alerts
+#UserCP.code-alerts {
+    #ucpcontent {
+        & > table {
+            img {
+                display: none;
+            }
+
+            &:first-of-type {
+                & > tbody {
+                    & > tr {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+
+                        .row1 {
+                            text-align: left !important;
+                        }
+                    }
+                }
+            }
+        }
+        & > form {
+            & > .tableborder {
+                & > table {
+                    display: block;
+
+                    & > tbody {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: var(--spacing-md);
+        
+                        & > tr {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 0;
+                            margin: 0;
+        
+                            &:first-child {
+                                display: none;
+                            }
+                            &:last-child {
+                                flex: 0 0 100%;
+
+                                td {
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: end;
+                                    gap: var(--spacing-sm);
+
+                                    input {
+                                        margin: 0;
+                                        line-height: 70%;
+                                    }
+
+                                    & > div:first-child {
+                                        display: flex;
+                                        flex-wrap: wrap;
+                                        gap: var(--spacing-sm);
+                                        align-items: center;
+
+                                        select {
+                                            width: auto;
+                                        }
+                                    }
+                                }
+                            }
+        
+                            &:not(:first-child):not(:last-child) {
+                                flex: 0 0 100%;
+                                padding: var(--spacing-sm);
+        
+                                @include mq-up(sm) {
+                                    flex: 0 0 calc(50% - calc(var(--spacing-md) / 2));
+                                }
+
+                                @include mq-up(md) {
+                                    flex: 0 0 calc((100% / 3) - calc(var(--spacing-md) * 2 / 3));
+                                }
+        
+                                & > td {
+                                    margin: 0;
+                                    padding: 0 0 0 calc(var(--spacing-sm) + 20px);
+                                    text-align: left;
+            
+                                    &:first-child {
+                                        display: none;
+                                    }
+                                    &.alert-text {
+                                        padding-bottom: var(--spacing-sm);
+                                        margin-top: -1px;
+
+                                        img {
+                                            display: none;
+                                        }
+                                    }
+                                    
+                                    &:last-child {
+                                        position: absolute;
+                                        left: 0;
+                                        padding-left: var(--spacing-sm);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .pagination ~ br {
+            display: none;
+        }
+    }
+}
+//Forum & Topic Subscriptions
+#UserCP.code-50,
+#UserCP.code-26 {
+    #ucpcontent .tableborder {
+        & > table {
+            display: block;
+
+            & > tbody {
+                display: flex;
+                flex-wrap: wrap;
+                gap: var(--spacing-md);
+
+                & > tr {
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    &:not(.pformstrip) {
+                        flex: 0 0 100%;
+                        padding: var(--spacing-sm);
+        
+                        @include mq-up(sm) {
+                            flex: 0 0 calc(50% - (var(--spacing-md) / 2));
+                        }
+
+                        @include mq-up(md) {
+                            flex: 0 0 calc((100% / 3) - (var(--spacing-md) * 2 / 3));
+                        }
+
+                        & > td {
+                            &:first-child {
+                                display: none;
+                            }
+                            &:nth-child(2),
+                            &:last-child {
+                                flex: 0 0 100%;
+                            }
+                            &:nth-child(2) {
+                                display: flex;
+                                flex-direction: column;
+                                line-height: 200%;
+
+                                b:first-of-type {
+                                    padding-bottom: var(--spacing-sm);
+                                    margin-top: -5px;
+                                }
+    
+                                br {
+                                    display: none;
+                                }
+                            }
+                            &:nth-child(3),
+                            &:nth-child(4) {
+                                font-weight: 600;
+                            }
+                            &:nth-child(3) {
+                                &::after {
+                                    content: ' topics'
+                                }
+                            }
+                            &:nth-child(4) {
+                                &::after {
+                                    content: ' replies'
+                                }
+                            }
+                        }
+                    }
+
+                    &:first-child {
+                        display: none;
+                    }
+                    &.pformstrip {
+                        flex: 0 0 100%;
+                        padding: var(--spacing-xs) var(--spacing-sm) !important;
+
+                        &:nth-child(2) {
+                            border-top: none;
+                            margin-top: 0;
+                            padding-top: 0 !important;
+                        }
+
+                        td {
+                            width: 100%;
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+#UserCP.code-26 {
+    #ucpcontent {
+        & > .pformstrip {
+            span {
+                display: none;
+            }
+        }
+    }
+    .tableborder {
+        & > table {
+            & > tbody {
+                width: 100%;
+
+                & > tr {
+                    &:not(.pformstrip) {
+                        & > td {
+                            &:nth-child(2) {
+                                display: block;
+
+                                br {
+                                    display: initial;
+                                }
+                                a:first-child {
+                                    display: block;
+                                }
+                            }
+                            &:nth-child(5) {
+                                flex: 0 0 100%;
+                            }
+                            &:not(:last-child) {
+                                padding: 0 0 0 calc(var(--spacing-sm) + 20px);
+                            }
+                            &:last-child {
+                                position: absolute;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//Board Settings
+#UserCP.code-04 {
+    #ucpcontent {
+        & > form {
+            & > table {
+                & > tbody {
+                    & > tr {
+                        & > td {
+                            &:first-child {
+                                line-height: 160%;
+                                max-width: max-content;
+                                width: 100%;
+                                display: block;
+                                max-width: max-content;
+                                padding: var(--spacing-xs) var(--spacing-sm);
+                                margin: var(--spacing-sm) 0 0;
+
+                                b {
+                                    & ~ br {
+                                        display: none;
+                                    }
+                                }
+                            }
+                            &:last-child {
+                                display: flex;
+                                height: max-content;
+                                padding: 0;
+
+                                input {
+                                    margin: 0;
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .input-wrap {
+            & + br {
+                display: none;
+            }
+        }
+        .pformstrip:last-child {
+            margin-bottom: 0;
+            padding: 0;
+        }
+    }
+}
+//Alert Settings
+#UserCP.code-alerts_settings {
+    table {
+        .pformstrip {
+            padding: 0;
+            line-height: 160%;
+            margin: var(--spacing-sm) 0 0;
+
+            &:first-child {
+                text-align: left;
+            }
+        }
+        & + .pformstrip {
+            text-align: center;
+            margin-bottom: 0;
+            padding: 0;
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+    tr {
+        &:not(:nth-last-child(4)):not(:first-child) {
+            td {
+                padding: 0 0 var(--spacing-md);
+            }
+        }
+        &:nth-last-child(4) {
+            .pformstrip {
+                padding-top: var(--spacing-md);
+            }
+        }
+    }
+}
+//Email Settings
+#UserCP.code-02 {
+    #ucpcontent {
+        form {
+            & > table {
+                & > tbody {
+                    & > tr {
+                        display: grid !important;
+                        grid-template-columns: max-content auto;
+                    }
+                }
+            }
+        }
+        .pformstrip:last-child {
+            margin-bottom: 0;
+            padding: 0;
+        }
+    }
+}
+//Inbox
+#Msg.code-01 {
+    #ucpcontent {
+        & > table {
+            & > tbody {
+                & > tr {
+                    & > td {
+                        &:first-child {
+                            display: none;
+                        }
+    
+                        & > br,
+                        & > form {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//Send Message
+#Msg.code-04 {
+    form {
+        & > table {
+            & > tbody {
+                & > tr {
+                    margin-bottom: var(--spacing-md);
+
+                    .pformstrip {
+                        text-align: left;
+                    }
+                    &:first-child {
+                        margin-bottom: var(--spacing-md) !important;
+
+                        .pformstrip {
+                            margin-bottom: 0;
+                            padding-bottom: 0;
+                            line-height: 160%;
+                            max-width: max-content;
+                            display: block;
+                            max-width: max-content;
+                            padding: var(--spacing-xs) var(--spacing-sm);
+                        }
+                    }
+                    &:nth-child(2),
+                    &:nth-child(4),
+                    &:nth-child(5),
+                    &:nth-child(6),
+                    &:nth-last-child(3),
+                    &#code-buttons-header,
+                    &#enter-your-post-header {
+                        display: none !important;
+                    }
+                
+                    &:nth-child(3) {
+                        .pformleft {
+                            display: none;
+                        }
+                        .pformright {
+                            grid-column: 1 / -1;
+                            padding: 0;
+                        }
+                    }
+                    &:nth-child(7) {
+                        grid-template-columns: 100%;
+                        gap: 0;
+
+                        .pformleft {
+                            border: none;
+                            padding: 0;
+                        }
+                        .pformright {
+                            padding: 0;
+                        }
+                    }
+                    &:nth-last-child(2) {
+                        .pformleft {
+                            display: none;
+                        }
+                        .pformright {
+                            grid-column: 1 / -1;
+                            padding: 0;
+                            justify-content: center;
+
+                            br {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    &#code-buttons {
+                        display: block;
+
+                        .pformleft {
+                            display: none;
+                        }
+
+                        .pformright {
+                            font-size: 0;
+                            line-height: 0;
+                            padding: 0;
+
+                            & > input,
+                            & > br {
+                                display: none;
+                            }
+
+                            #bbcode-buttons {
+                                display: flex;
+                                flex-wrap: wrap;
+                                gap: 5px;
+
+                                input,
+                                select {
+                                    margin: 0;
+                                    width: auto;
+                                    cursor: pointer;
+                                    font-size: 1rem;
+                                    line-height: 160%;
+                                }
+
+                                & > a,
+                                & > br {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+
+                    &#enter-your-post-header + tr {
+                        display: block;
+
+                        & > td {
+                            display: block;
+
+                            &.pformleft {
+                                display: none;
+                            }
+                            &.pformright {
+                                padding: 0;
+                            }
+
+                            textarea {
+                                width: 100%;
+                                height: 400px;
+                                box-sizing: border-box;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//View Message
+#Msg.code-03 {
+    #ucpcontent {
+        & > .tableborder {
+            & + div {
+                display: none;
+            }
+        }
+        .msg-normal > table {
+            display: block;
+            margin-top: var(--spacing-md);
+    
+            @include mq-up(xs) {
+                margin-top: var(--spacing-lg);
+            }
+
+            tbody {
+                display: flex;
+                flex-direction: column;
+
+                tr {
+                    &:nth-child(2n + 1) {
+                        display: flex;
+                        flex-direction: column;
+                        gap: var(--spacing-sm);
+                        padding: var(--spacing-lg);
+
+                        td {
+                            padding: 0;
+                            width: 100%;
+                        }
+                    }
+
+                    &:nth-child(2n) {
+                        display: block;
+                        padding: var(--spacing-lg);
+                        margin: var(--spacing-md) 0 var(--spacing-lg);
+
+                        td {
+                            display: block;
+                            width: 100%;
+                            padding: 0;
+                            text-align: justify;
+                            line-height: 200%;
+
+                            &:first-child {
+                                display: none;
+                            }
+                        }
+                    }
+                    &:last-child {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
